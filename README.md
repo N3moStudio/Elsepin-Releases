@@ -14,9 +14,14 @@ places together in a native iPhone app.
 
 ### Go somewhere different
 
-- **Move your way.** Joystick, walking, cycling and driving. Preview routes, set stops and choose your pace.
-- **Keep your places.** Favorites, saved routes and areas, with selective backup/import.
-- **Stay in control.** Live Activities, Dynamic Island and widgets that wait for your confirmation.
+| What you want to do | What Elsepin offers |
+| --- | --- |
+| Pick a location | Search the map, place a pin, teleport and keep favorites. |
+| Simulate movement | Joystick control and walking, cycling or driving routes, with previews and adjustable pace in mph or km/h. |
+| Plan a journey | Save routes, add stops from seconds up to 24 hours, and organize saved places and named areas. |
+| Move your library | Export backups or import a file/pasted JSON; review changed settings and select individual library items before applying. |
+| Keep controls nearby | Live Activities and Dynamic Island session status; configurable widgets prepare a destination and always wait for manual confirmation. |
+| Check optional providers | Experimental Find My Devices/Life360 observations and Nearby place alerts through a separately configured helper. |
 
 ### Make it yours
 
@@ -28,6 +33,15 @@ places together in a native iPhone app.
 
 **9 themes · 13 icons · Your own finish.** Dark Ion, solid or glass surfaces,
 custom fonts and text sizes. [Explore the themes →](https://elsepin.onrender.com/)
+
+### Know the limits
+
+- **Setup is required:** a compatible iPhone, signing method and pairing connection. Installing the IPA alone does not complete setup.
+- **No Find My People support.** Provider checks need your authorized account/helper; they cannot access arbitrary people or bypass location-sharing permissions.
+- **No universal confirmation:** session status is not proof that every other app received the location. Provider observations may be delayed, unavailable or stale.
+- **No invisibility guarantee:** Elsepin cannot guarantee undetectability, account safety or compatibility with every app. It does not hide your IP address.
+- **No automatic widget teleport:** opening a widget never starts or changes an active spoofing session without confirmation.
+
 
 ---
 
