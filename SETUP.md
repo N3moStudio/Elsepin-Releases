@@ -4,7 +4,7 @@
 
 1. This 2.6.0 guide describes an unreleased build. Approved downloads will appear in [Elsepin Releases](https://github.com/N3moStudio/Elsepin-Releases/releases). Do not install an unverified development artifact.
 2. Add the IPA to **SideStore** and keep the bundled Live Activity extension. SideStore signs both for your device.
-3. **For 2.4.x → 2.5.x, export your library first:** the new app identity creates a separate installation. Export settings and your library from the old app before replacing it. For later updates with the same identity, use the same signing setup and install over the current app.
+3. **For 2.4.x → 2.5.x, export your library first:** the new app identity creates a separate installation. Follow the backup/export steps before replacing the old installation. For later updates with the same identity, use the same signing setup and install over the current app.
 
 Direct SideStore installation is the primary setup described here. Import a
 library through **Settings → Import & export** using a file or pasted JSON.
@@ -48,8 +48,8 @@ location was cleared.
 
 ## Optional Find My checks
 
-Use **Settings → Find My checks** to choose a [cloud helper](CloudFindMy/RENDER-SETUP.txt)
-or [Windows helper](Companion/README.txt). Use your own service and account;
+Use **Settings → Find My checks** to choose a [cloud helper](docs/CLOUD-GUIDE.md)
+or Windows helper exported from the app. Use your own service and account;
 one helper is active at a time. The Windows computer must remain awake and
 reachable on the same Wi-Fi. A cloud helper can work while that computer is off.
 
@@ -58,4 +58,4 @@ Find My reports are fetched separately, around once per minute; faster Elsepin
 checks cannot make Apple produce a newer report. Devices is not Find My People.
 
 Helper guides retain their minimum compatible version, 2.3.2; they also apply
-to this 2.6.0 source; Life360 cloud support requires the updated helper. See [privacy and limits](docs/PRIVACY.md).
+to this 2.6.0 source; Life360 cloud support requires the updated helper. See [privacy and limits](https://elsepin.onrender.com/privacy.html).
