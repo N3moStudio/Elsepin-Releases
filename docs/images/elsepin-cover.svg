@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Elsepin. Your map. Your pace.</title>
+  <desc id="desc">An abstract citron route across a dark map, beside the Elsepin wordmark.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#141a23"/><stop offset="1" stop-color="#141024"/></linearGradient>
+    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#202a22"/><stop offset="1" stop-color="#191f28"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#b29cff" stop-opacity=".23"/><stop offset="1" stop-color="#b29cff" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" fill="none" stroke="#dce8dc" stroke-opacity=".08"/></pattern>
+    <clipPath id="map"><rect x="685" y="38" width="477" height="364" rx="28"/></clipPath>
+  </defs>
+  <rect width="1200" height="440" rx="28" fill="url(#bg)"/>
+  <ellipse cx="590" cy="60" rx="360" ry="290" fill="url(#light)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif">
+    <rect x="52" y="54" width="8" height="8" rx="4" fill="#d7ff4f"/>
+    <text x="74" y="65" fill="#c4c6cd" font-size="15" font-weight="600" letter-spacing="3">A DIFFERENT POINT OF VIEW</text>
+    <text x="47" y="211" fill="#f6f4ed" font-size="112" font-weight="750" letter-spacing="-6">Elsepin</text>
+    <text x="54" y="266" fill="#d7ff4f" font-size="33" font-weight="500">Your map. Your pace.</text>
+    <text x="54" y="363" fill="#b6b8c3" font-size="19">Location simulation for iPhone.</text>
+  </g>
+  <g clip-path="url(#map)">
+    <rect x="685" y="38" width="477" height="364" fill="url(#panel)"/>
+    <rect x="685" y="38" width="477" height="364" fill="url(#grid)"/>
+    <path d="M703 51L956 405M701 330L1150 78M1020 30V410" stroke="#778b78" stroke-opacity=".14" stroke-width="12" fill="none"/>
+    <path d="M694 245C797 185 880 320 954 272S1074 169 1186 204V430H680Z" fill="#0c1516" opacity=".65"/>
+    <path d="M763 319V228H906V135H1068" fill="none" stroke="#d7ff4f" stroke-opacity=".08" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M763 319V228H906V135H1068" fill="none" stroke="#d7ff4f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="763" cy="319" r="10" fill="#d7ff4f" stroke="#202a22" stroke-width="5"/>
+    <circle cx="1068" cy="135" r="34" fill="#d7ff4f" opacity=".12"/>
+    <circle cx="1068" cy="135" r="21" fill="#d7ff4f" opacity=".2"/>
+    <circle cx="1068" cy="135" r="11" fill="#d7ff4f" stroke="#202a22" stroke-width="5"/>
+    <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing="2" fill="#a3b09d">
+      <text x="715" y="80">ELSEWHERE, BY DESIGN.</text>
+      <text x="987" y="369">GO YOUR WAY ↗</text>
+    </g>
+  </g>
+  <rect x="685" y="38" width="477" height="364" rx="28" fill="none" stroke="#a9b59f" stroke-opacity=".18"/>
+</svg>

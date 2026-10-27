@@ -20,6 +20,8 @@ is unreleased. Earlier Shift entries retain their original names and release sta
 
 ### Documentation, workflow and build-record follow-up — 26 October 2026
 
+- Refine the public README to a visual route banner, short feature list and prominent website/release links. Remove the development notice and long explanations; preserve the full changelog, build records and guides. No release is created by this presentation change.
+
 - Refresh the public README with the app introduction, Prism Jumpgate artwork, feature groups, all nine themes/thirteen icons, setup, honest release status, optional-provider limits and support links.
 - Preserve the entire earlier changelog and publish a synchronized public copy plus a build register. Record the two failed Elsepin attempts and their fixes, rather than reporting only the successful run.
 - Run `40441280998` (`a863660`) failed during appearance initialization; `ea91bd2` fixes initialization ordering. Run `40441622492` then failed the icon-resource check because XcodeGen uses grouped paths; `b5f5b24` fixes that validation. Run `40442493014` passed 533 tests and native app/extension compilation. No IPA was packaged by any of these three runs.
