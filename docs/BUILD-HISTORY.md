@@ -4,11 +4,17 @@ Updated **26 October 2026**, America/Los_Angeles. Read the [full changelog](../C
 for feature details. This page separates compilation, test artifacts and published
 releases so a successful check is not mistaken for an available download.
 
-## Current status: 2.6.0 (59), unreleased
+## Current status: 2.6.0 (59), official — 27 October 2026
 
-Elsepin's app and Live Activity/widget extension compiled successfully on the Mac
-builder. **No Elsepin IPA or release has been published.** The website is live at
-[elsepin.onrender.com](https://elsepin.onrender.com/).
+Published the exact IPA from successful Mac run `40460137350`, source
+`304756f035172d6e8e3406a451ee57c25cd07951`. Workflow tests and native packaging
+passed. The Downloads IPA passed integrity and identity checks and matched the
+GitHub artifact SHA-256 `c8cb9197d1b856bcd90a9de7d29311f82411eddd7b825a5d32a2080747156d22`.
+No rebuild or binary modification was performed during publication.
+
+[Official release](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0)
+
+Earlier development records follow; their no-IPA statements apply to those runs.
 
 The runs below are in the private development repository. Their identifiers and
 results are recorded here for traceability; visitors cannot open private CI logs.

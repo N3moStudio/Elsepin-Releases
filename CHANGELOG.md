@@ -1,11 +1,13 @@
 # Elsepin changelog
 
-Updated through **26 October 2026** (America/Los_Angeles). Elsepin 2.6.0 (59)
-is unreleased. Earlier Shift entries retain their original names and release status.
+Updated through **27 October 2026** (America/Los_Angeles). Elsepin 2.6.0 (59)
+is the official release. Earlier Shift entries retain their original names and release status.
 
 [App introduction](README.md) · [Build history](docs/BUILD-HISTORY.md) · [Build results](docs/BUILD-HISTORY.md)
 
-## 2.6.0 (59) — Elsepin development — 26 October 2026
+## 2.6.0 (59) — official — 27 October 2026
+
+- Publish the exact IPA from successful Mac run `40460137350`, source `304756f035172d6e8e3406a451ee57c25cd07951`, after package inspection and matching the GitHub artifact digest. SHA-256: `c8cb9197d1b856bcd90a9de7d29311f82411eddd7b825a5d32a2080747156d22`. Earlier no-IPA statements below describe their original development checkpoints.
 
 - Rebrand the regular app, setup/pairing prompts, notifications, Live Activities, helper downloads and backup filenames to Elsepin. Use Prism Jumpgate as the primary icon; retain all thirteen icon options and nine themes.
 - Give Ion its dark olive canvas, solid panels and citron actions. Apply theme defaults for color mode, surfaces, font design and relative text size, with independent persistent overrides and a reset-to-theme control. Keep accessibility text sizes and Reduce Transparency respected.
