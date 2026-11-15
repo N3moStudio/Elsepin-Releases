@@ -34,6 +34,10 @@ places together in a native iPhone app.
 **9 themes · 13 icons · Your own finish.** Dark Ion, solid or glass surfaces,
 custom fonts and text sizes. [Explore the themes →](https://elsepin.onrender.com/)
 
+### Stop and reconnect
+
+If Elsepin can’t clear the location, connect to Wi-Fi, reconnect LocalDevVPN, and try again. Connecting to another device’s Wi-Fi hotspot can also work. Closing or force-quitting Elsepin doesn’t confirm that it cleared. Check the location in another app too.
+
 ### Know the limits
 
 - **Setup is required:** a compatible iPhone, signing method and pairing connection. Installing the IPA alone does not complete setup.
