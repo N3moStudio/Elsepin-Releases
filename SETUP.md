@@ -2,11 +2,11 @@
 
 ## Install
 
-1. This 2.6.0 guide describes an unreleased build. Approved downloads will appear in [Elsepin Releases](https://github.com/N3moStudio/Elsepin-Releases/releases). Do not install an unverified development artifact.
-2. Add the IPA to **SideStore** and keep the bundled Live Activity extension. SideStore signs both for your device.
+1. Download the published IPA from [Elsepin Releases](https://github.com/N3moStudio/Elsepin-Releases/releases/latest). The current public release is **2.6.0**; **2.6.1 through build 86 is still in final testing**. Draft notes and build records are not public downloads.
+2. Sign the IPA using your preferred compatible signing method, such as SideStore or FlareStore. Keep the bundled extension for widgets and Live Activities; capabilities depend on the signing setup.
 3. **For 2.4.x → 2.5.x, export your library first:** the new app identity creates a separate installation. Follow the backup/export steps before replacing the old installation. For later updates with the same identity, use the same signing setup and install over the current app.
 
-Direct SideStore installation is the primary setup described here. Import a
+Export a backup before replacing an existing installation. Import a
 library through **Settings → Import & export** using a file or pasted JSON.
 Review individual changes before saving. See [backup import help](docs/BACKUPS.md)
 and [location widgets and named areas](docs/WIDGETS-AND-AREAS.md).
@@ -41,14 +41,16 @@ available after a session is established.
 - **End route** stops travel while retaining the held point.
 - **Stop spoofing** requests clearing the simulated location. A failed clear is not a successful reset; reconnect and retry.
 
-Wi-Fi is required to establish a fresh developer connection. An already working
+Wi-Fi is required to establish a fresh developer connection. Connecting to another
+device's Wi-Fi hotspot can also work. An already working
 session can continue after leaving Wi-Fi, subject to iOS execution and the
 connection staying usable. Force-closing Elsepin does not prove the simulated
-location was cleared.
+location was cleared. If clearing fails, reconnect Wi-Fi and LocalDevVPN, retry
+Stop, and check the location in another app.
 
 ## Optional Find My checks
 
-Use **Settings → Find My checks** to choose a [cloud helper](docs/CLOUD-GUIDE.md)
+Existing builds offer **Find My & Life360** under advanced settings, with a [cloud helper](docs/CLOUD-GUIDE.md)
 or Windows helper exported from the app. Use your own service and account;
 one helper is active at a time. The Windows computer must remain awake and
 reachable on the same Wi-Fi. A cloud helper can work while that computer is off.
@@ -58,4 +60,6 @@ Find My reports are fetched separately, around once per minute; faster Elsepin
 checks cannot make Apple produce a newer report. Devices is not Find My People.
 
 Helper guides retain their minimum compatible version, 2.3.2; they also apply
-to this 2.6.0 source; Life360 cloud support requires the updated helper. See [privacy and limits](https://elsepin.onrender.com/privacy.html).
+to 2.6.0 and test build 86; Life360 cloud support requires the updated helper.
+These experiments are optional, unofficial and may stop working. A proposed fresh
+Life360 map integration is not included. See [privacy and limits](https://elsepin.onrender.com/privacy.html).

@@ -1,47 +1,64 @@
 # Elsepin build history
 
-Updated **26 October 2026**, America/Los_Angeles. Read the [full changelog](../CHANGELOG.md)
-for feature details. This page separates compilation, test artifacts and published
-releases so a successful check is not mistaken for an available download.
+**Public release:** [2.6.0 (59)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0). **In final testing:** 2.6.1 through build 86. No 2.6.1 release is published.
 
-## Current status: 2.6.0 (59), official — 27 October 2026
+[Feature-by-feature changes](CHANGES-SINCE-2.6.0.md) · [Complete chronological update log](../CHANGELOG.md)
 
-Published the exact IPA from successful Mac run `40460137350`, source
-`304756f035172d6e8e3406a451ee57c25cd07951`. Workflow tests and native packaging
-passed. The Downloads IPA passed integrity and identity checks and matched the
-GitHub artifact SHA-256 `c8cb9197d1b856bcd90a9de7d29311f82411eddd7b825a5d32a2080747156d22`.
-No rebuild or binary modification was performed during publication.
+## 2.6.1 development builds
 
-[Official release](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0)
+All entries below are development/test builds, not public releases. A passing build does not prove physical pairing, signing, location clearing or battery behavior.
 
-Earlier development records follow; their no-IPA statements apply to those runs.
+| Build | Date | Changes and result |
+| --- | --- | --- |
+| 86 | 15 Nov 2026 | Live pin visibility during pinch, consistent rotated-map scale. 724 checks; verified test IPA. |
+| 85 | 15 Nov 2026 | Pairing cancel/retry and import race fixes; approved recovery wording; separate website rewrite. 718 checks; test IPA. |
+| 84 | 14 Nov 2026 | Corrected idle/route tray spacing; focused simulator layout checks. 711 checks; test IPA. |
+| 83 | 14 Nov 2026 | Wrapped map controls, reachable route commands, search retry and accessibility refinements. 711 checks; interim test IPA. Spacing corrected in 84. |
+| 82 | 13 Nov 2026 | Pin visibility range from 0.5 to 20 miles across; native map scale; backup support. 697 checks; test IPA. |
+| 81 | 13 Nov 2026 | Steady pin editor, explicit custom emoji, zoom filtering, clearer pin/route search and Cancel next route. 692 checks; test IPA. |
+| 80 | 12 Nov 2026 | Always-visible planner map, city/area search, cycling fallback, preserved paths and pin-edit fixes. 686 checks; test IPA. |
+| 79 | 12 Nov 2026 | Save/favorite system, larger maps, Redo corners, next-route handoff, emoji and accurate selection sweep. 665 checks; test IPA. |
+| 78 | 12 Nov 2026 | Pin names during routes, destination/Add stop fixes, simpler trays and explicit path-recalculation choices. 653 checks; test IPA. |
+| 77 | 8 Nov 2026 | Fixed the saved-pin annotation environment lookup identified in a build-76 device crash. 652 checks; test IPA. |
+| 76 | 8 Nov 2026 | Isolated Dev Mode, Recently Deleted sweep selection, map input hardening and memory diagnostics. 652 checks; test IPA. |
+| 75 | 7 Nov 2026 | Route-label/search-overlay fixes, retained failed-start previews, route smoothing, swipe actions and grouped import review. 640 checks; test IPA. |
+| 74 | 6 Nov 2026 | Keep path/Recalculate choice, leg controls, destination options, endpoint naming, back swipes and expanded Add stop map. 634 checks; test IPA. |
+| 73 | 6 Nov 2026 | Individual-leg mode/speed editing, protected route previews, planned-route recents and a smaller map panel. 631 checks; test IPA. |
+| 72 | 5 Nov 2026 | Fresh service connections for movement/Stop, search-transition fixes, bounded directions and richer incident diagnostics. 620 checks; test IPA. |
+| 71 | 5 Nov 2026 | Endpoint checks, readable Stop/icon text, selectable larger pins, compact selection controls and resource diagnostics. 615 checks; test IPA. |
+| 70 | 5 Nov 2026 | Saved area outlines, pin/area layer switches, persisted map options and reduced repeated map work. 611 checks; test IPA. |
+| 69 | 4 Nov 2026 | Separate pins/favorites, saved-route favorites, area search, recent routes and bounded category/along-route searches. 609 distinct checks across hosts; test IPA. |
+| 68 | 2 Nov 2026 | Compact route card, bounded automatic recovery and honest interrupted-session state. 600 checks; test IPA. |
+| 67 | 2 Nov 2026 | Native request-progress indicators with static accessibility/low-power fallback; focused unused-code cleanup. 586 checks; test IPA. |
+| 66 | 1 Nov 2026 | Bounded incident exports, session breadcrumbs, independent provider errors and shared helper polling. 582 checks; test IPA. |
+| 65 | 31 Oct 2026 | Native certificate/delegate warning cleanup. 565 checks and native validation; the existing build-64 phone copy was retained. |
+| 64 | 30 Oct 2026 | Native map route-touch handling and along-route stop search. Native test IPA delivered; further device feedback followed. |
+| 63 | 30 Oct 2026 | Search submission/cancellation, simulated ETA, paced writes and route-search follow-up. Native test IPA delivered. |
+| 62 | 30 Oct 2026 | Theme, setup and compact route/Island UI follow-up. Native test IPA delivered; known warnings were later fixed in 65. |
+| 61 | 30 Oct 2026 | Pairing code in Live Activities/notifications and native setup flow. Native test IPA delivered. |
+| 60 | 28 Oct 2026 | Bloom default, eight themes, simpler typography/surfaces and old-backup compatibility. Native test IPA delivered. |
 
-The runs below are in the private development repository. Their identifiers and
-results are recorded here for traceability; visitors cannot open private CI logs.
+### Current validation
 
-| Date/time (Pacific) | Run / source | Result | What happened |
-| --- | --- | --- | --- |
-| 26 Oct, 7:55 PM | `40441280998` / `a863660` | Failed | Native compilation found appearance migration reading a stored property before initialization completed. Initialization ordering was corrected. No IPA. |
-| 26 Oct, 7:59 PM | `40441622492` / `ea91bd2` | Failed | The appearance check expected full file paths, but the generated Xcode project used groups and relative paths. The checker was corrected to validate the generated representation. No IPA. |
-| 26 Oct, 8:08 PM | `40442493014` / `b5f5b24` | Passed | 533 automated tests: 404 Swift, 14 packaging/icon, 19 Windows-helper and 96 cloud-helper. Native app and extension compilation passed. Only diagnostics were uploaded; no IPA. |
+Build 86 passed 724 checks: 580 Swift, 104 cloud-helper, 18 Windows-helper and 22 resource checks. One Windows-only case was skipped on the Mac. The production app and extension compiled without compiler warnings/errors. Package inspection verified both bundle versions, device executables, icons/resources and absence of simulator fixtures.
 
-### Follow-up work, without another app build
+Fourteen distinct simulator UI cases passed across focused runs, including narrow/large-text layouts, search cancellation/retry, connecting/paused/failed presentations, bottom spacing and continuous pinch/rotation visibility. Their connection and movement states were test fixtures. Final physical-iPhone testing is still in progress.
 
-- **`991adc1`:** recorded native validation and exported the website for static hosting.
-  Public website source/assets were published in `c2051ff`; responsive preview
-  checks at 320, 375, 430 and 768 pixels found no horizontal overflow.
-- **`217bd09`:** finished the backup-error and diagnostic-export wording. All 32
-  targeted backup/log tests passed. The first local test invocation had a shell
-  argument error; the corrected invocation reused the compiled tests and passed.
-  This two-label cleanup was not followed by another native build.
-- **Documentation and workflow update:** refreshed the public introduction,
-  published the complete changelog and this register, and simplified Actions to
-  **Build Elsepin IPA**. Each future manual run checks the app, builds and uploads
-  one IPA. No build or release is started merely by changing this workflow.
+<details>
+<summary>Intermediate failures and corrections</summary>
 
-Device appearance, real provider responses, notification delivery, accessibility
-and measured battery behavior remain separate acceptance checks. The previous
-Shift iPhone smoke test does not prove every new Elsepin change on a phone.
+- Build 69's GitHub attempts were blocked by account access; the private Mac build later succeeded. A build-75 GitHub attempt was blocked before execution by account billing/spending restrictions; its existing successful package was retained.
+- Build 76 first failed on native type-check complexity and defaults-capture warnings. Both were corrected before the successful package.
+- Build 78 first caught a route-planner scope error; the final run compiled successfully.
+- Build 79 first failed because a row hit-test helper lacked its required import. The final run passed after correction and integration checks.
+- Build 83 was an interim IPA. Phone feedback exposed the bottom-spacing regression corrected in 84.
+- Pin-visibility simulator attempts initially hit an overlapping route-menu control rather than the intended test input. Fixture placement was corrected; the final actual pinch/rotation case passed. These were not recorded as production app crashes.
+
+</details>
+
+## 2.6.0 (59), public release
+
+Published 27 October 2026 after native compilation and package verification. Introduced the Elsepin identity, Prism Jumpgate, expanded appearance choices, refreshed Settings, manual update checks and the public website. The original release includes nine themes; the next 2.6.1 update retains eight.
 
 ## Earlier Shift builds
 
@@ -73,21 +90,9 @@ Earlier feature milestones, including diagnostic builds 42–43 and versions bef
 iterations; their entries do not imply a public release or a separately verified
 build. Dates are omitted when no reliable release record exists.
 
-## Preserved artifact fingerprints
 
-These identify past artifacts only. They are **not** checksums for a future
-Elsepin download. Copying or renaming an IPA does not make it a new version.
+## Earlier Locus/Shift milestones
 
-| Artifact | SHA-256 |
-| --- | --- |
-| Shift 2.5.8 (58), official | `62e73269cccfcaf0da9bfa855768038f75145ae9b060ff9860ee58a916e62a08` |
-| Shift 2.5.8 (57), test | `6ff4810cdab58e37e92aa3e848e34c834206ef825ebe2461abc20eb37c2afb5c` |
-| Shift 2.5.7 (56), official | `17982b0862722b0d02b4e0097f199959a1c285de798114067312b35908f3b468` |
-| Shift 2.5.4 (53), official | `6efa0a1aa3179e61cb29d126e7c77ef2517486c22c2fcb69255b9dcf0e371853` |
+The [complete changelog](../CHANGELOG.md) retains each recorded milestone from the upstream Locus starting point through builds 9–46, including paired build entries 11–12 and diagnostic builds 42–43. Early versions without a recorded build number remain named by version; no missing number or release date is invented.
 
-## How new records are added
-
-Each build belongs to its actual version and build number. Record failed attempts
-and fixes before the final result, distinguish tests from phone acceptance, and
-state whether an IPA or release exists. Small source or documentation fixes stay
-under the current development entry instead of inventing a new release.
+The source repository is private. This public register summarizes preserved build evidence without exposing local files, credentials or private CI links. Historical releases keep their original names; they are not newly published Elsepin downloads.

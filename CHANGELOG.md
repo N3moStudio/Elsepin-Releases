@@ -1,9 +1,585 @@
 # Elsepin changelog
 
-Updated through **27 October 2026** (America/Los_Angeles). Elsepin 2.6.0 (59)
-is the official release. Earlier Shift entries retain their original names and release status.
+Updated through **15 November 2026**, including test build 86.
+**Public release: 2.6.0 (59). Next release: 2.6.1, in final testing and not published.**
 
-[App introduction](README.md) · [Build history](docs/BUILD-HISTORY.md) · [Build results](docs/BUILD-HISTORY.md)
+[What's coming in 2.6.1](docs/CHANGES-SINCE-2.6.0.md) · [Build history](docs/BUILD-HISTORY.md) · [Setup](SETUP.md)
+
+Earlier entries describe their original development checkpoints. A later build may
+supersede a pending check or an intermediate behavior. The build history records
+successful packages separately from failed attempts and simulator/device evidence.
+
+## Build 86 - live pin visibility during zoom (15 November 2026)
+
+- Refresh saved pins while the camera moves, rather than waiting for a gesture to end.
+- Measure horizontal ground scale at the screen center so rotating the map does not
+  change the visibility cutoff through an expanded bounding rectangle.
+- Apply cutoff crossings immediately in either direction. Limit repeated spatial
+  filtering to 10 Hz and flush the settled result; only changed pin lists publish.
+- Share the correction between the main map and Library pin editor. Preserve the
+  0.5–20 mile preference, map scale, active-route markers and location engine.
+- Build 86 passed 724 automated checks and native app/extension compilation with
+  no compiler warnings/errors. The verified IPA was delivered for private testing.
+- Fourteen distinct simulator UI cases passed across the preceding validation runs,
+  including actual two-finger pinch/rotation with test-only connection fixtures.
+  Physical movement, signing and battery behavior remain separate phone checks.
+
+## Build 85 - pairing cancellation and clearer recovery (15 November 2026)
+
+- Wake abandoned native pairing work, reject stale callbacks and validate staged
+  output before installing it. A cancelled result cannot replace an imported file.
+- Wait briefly for cleanup before retrying, then give an actionable reopen message
+  if the native worker has not finished. Keep existing pairing validation and FFI.
+- Shorten approved pairing, Stop and area-editor wording while retaining its meaning.
+  Explain the need for Wi-Fi and LocalDevVPN; another device's Wi-Fi hotspot can
+  also work. Force-closing still does not confirm that the location was cleared.
+- Publish the separate website rewrite with map-led scroll sections, a working
+  interactive preview, theme/icon examples, setup guidance and accessibility fallbacks.
+- Build 85 passed 718 automated checks and clean native app/extension compilation.
+  IPA delivered privately; no public app release. Website publication is separate.
+
+## Build 84 - bottom spacing and native validation (14 November 2026)
+
+- Reserve bottom navigation space once, fixing build 83's floating idle tray and
+  overly compressed active-route details, including maximum accessibility text.
+- Preserve reachable Pause/Stop and both Solid and Liquid Glass navigation.
+- Pass the initial 11 simulator UI cases and two focused idle-spacing cases with
+  inspected screenshots and no reported runtime warnings. Fixtures are disposable
+  and cannot perform or prove real-device spoofing.
+- Build 84 passed 711 automated checks and clean native compilation; test IPA delivered.
+
+## Build 83 - adaptable controls and search recovery (14 November 2026)
+
+- Wrap map controls when a narrow screen cannot fit them on one row. Allow long
+  route details to scroll while keeping movement commands outside the scroll area.
+- Show Starting/Checking before the first accepted route update; preserve distinct
+  paused, failed and unverified states.
+- Offer meaningful retry guidance when directions fail. Ignore duplicate search
+  submissions, cancel replaced queries and support interactive keyboard dismissal.
+- Improve Library empty states, long-name wrapping, named accessibility actions and
+  readable surfaces with transparency/contrast/motion fallbacks.
+- Add a validation-only Mac workflow and isolated simulator adapters. Production
+  device pairing and movement remain separate and no test fixture ships in the IPA.
+- Build 83 passed 711 automated checks and native compilation. Its bottom-spacing
+  regression was reported during testing and corrected in build 84.
+
+## Build 82 - wider pin visibility and map scale (unpublished test build)
+
+- Show saved pins at wider zoom levels using visible ground-map span instead of
+  camera distance. Default to 5 miles across the map, adjustable from 0.5 to 20 mi
+  in Settings > Appearance > Map pins. Apply the same range in the Library editor.
+- Add a compact native distance scale below the main map controls.
+- Preserve the new range through relaunch/Dev Mode, selective backup import/export
+  and settings reset. Older backups preserve the phone's current range.
+
+GitHub run 43525893260 at 1a31952 passed 697 automated checks and compiled both
+native targets without compiler warnings/errors. Verified build 82 replaced
+build 81 in the personal delivery folder. Phone acceptance remains pending;
+no release published.
+
+## Build 81 - pin editing and search clarity (unpublished test build)
+
+- Keep the Library pin editor steady by removing address lookup and its changing
+  address row. Main-map selection can still resolve an address later.
+- Add Custom emoji to the Symbol menu; show its input only when selected and
+  reject non-emoji input before display. Keep full emoji variants and sequences.
+- Hide saved pins at city/country zoom levels in the main map and pin editor;
+  keep the selected pin, route markers and current location visible.
+- Add Cancel next route to the active route's three-dot menu without stopping
+  the current trip.
+
+- Separate Recent pins from Recent routes, label pin and saved-route rows, and
+  distinguish Saved pins from Saved routes in search results. Pin actions now
+  say Plan a route here. Existing callbacks, saved geometry and data are unchanged.
+- GitHub run 43493662140 at 2dc937e passed 692 automated checks and compiled
+  both native targets with zero compiler warnings/errors. The verified build 81
+  IPA replaced build 80 in the personal delivery folder. Phone acceptance of
+  these changes remains pending; no release published.
+
+## Build 80 validated and delivered - 12 November 2026
+
+GitHub run 43376928555 succeeded at 6a1a29c: 686 checks passed (547 Swift,
+104 cloud, 18 Companion, 17 resources; one Windows-only case skipped).
+Native app/extension compiled with zero compiler warnings/errors. Both bundles
+are 2.6.1 (80); arm64, entitlements, icons, helpers and notices verified.
+Delivered Elsepin 2.6.1 build 80.ipa to the usual Desktop IPA folder, replacing
+build 79. Logs/receipt: .build/artifacts/github-43376928555/.
+No release published. Physical-device acceptance remains pending. Earlier
+not-built/pending-native notes below are superseded by this result.
+
+
+## Build 80 - planner and pin regression fixes (unpublished test build)
+
+- Always show a larger route-planning map, including before endpoints are chosen
+  and when directions fail. Fit explicitly frames the route or draft endpoints.
+- Keep exact saved/demo paths when accepting an unchanged map editor. Confirm
+  Refresh/Swap before replacing stored geometry; failed recalculations offer
+  Restore previous route, including its stops, speeds and Library identity.
+- Add a city/map-area picker for destination and stop searches. Category searches
+  stay in the explicitly selected area; ordinary searches remain unrestricted.
+- Try cycling directions first for bike/e-bike. If Apple reports no cycling path,
+  try a clearly labeled walking path without changing playback mode/speed.
+  Cancellation, offline errors and timeouts do not become invented routes.
+- Preserve per-leg mode/speed assignments when reversing a multi-stop route.
+- Open pin editors zoomed into the pin; allow existing pins to be repositioned.
+  Move full-screen expansion to a separate button beside Search, preserving the
+  camera and draft when returning. Tapping the map only places/moves the pin.
+- Leave manually placed pin names blank. A chosen search result may fill a blank
+  name; address lookup cannot overwrite it. Save still requires a name and pin.
+- Keep main-map pin labels name-only and remove the extra white symbol backing.
+- Move saved pins without duplicating them, overwriting another pin or retaining
+  the old address. Preserve favorite/style/folder and configured widget identity.
+- Avoid a redundant directions request when selecting a next-route destination.
+
+The completed build passed 686 automated checks and native app/extension compilation.
+A verified test IPA was delivered; no release was published. The earlier pending
+validation note is superseded by the build 80 receipt above.
+
+## Build 79 - library, pin and route refinements (unpublished test build)
+
+- Add Redo corner beside Undo, preserving existing Undo behavior. New edits clear
+  Redo; saving or reopening never restores an old edit stack.
+- Give pin and area editors taller maps and a full-screen option with search.
+  Only one editor map is mounted at a time, and previewing never teleports.
+- Keep pin Save disabled until a location and a nonblank name are selected.
+  Suggest a place/address for dropped pins without moving the coordinates or
+  replacing a custom name. Nearby landmarks are labeled "Near" when appropriate.
+- Add one native emoji per pin, retaining normal emoji variants, and distinguish
+  Follow theme from fixed pin colors. Optional address/emoji fields retain old
+  backup compatibility. Recents show resolved names and compact address details.
+- Link the map's route star to the existing saved route, including routes reopened
+  from Recents. An unsaved route offers Save to Library or Save & Favorite;
+  unfavoriting retains the route. Routes created from Library save on preview.
+- Give the compact map tray more consistent internal spacing in both single-
+  and two-action states. Keep explicit Teleport and Stop controls.
+- Align Recently Deleted drag selection with the finger using consistent screen
+  coordinates and actual row edges, including differently sized rows.
+- Respect shorter connection-check intervals and invalidate cached liveness on
+  foreground entry. Explicit movement and Stop retain their fresh checks;
+  accepted writes still do not prove another app received a location.
+- Optionally plan one next route from the first route's endpoint, to its start or
+  another destination, with a wait and an explicit automatic-start toggle (off
+  by default). Stop, connection interruption, relaunch and stale timing revoke
+  automatic continuation; it is not saved in backups or restored sessions.
+
+Native test/build evidence and phone acceptance are tracked in
+[build history](docs/BUILD-HISTORY.md) and [current work](docs/BUILD-HISTORY.md).
+Final run 43356906705 passed 665 checks and native compilation with no compiler
+warnings/errors. Build 79 test IPA delivered; no release published. Physical
+gesture/layout/provider checks remain separate from automated validation.
+
+## Build 78 - interaction fixes (12 November 2026)
+
+- Show saved-pin names during active/prepared routes without moving the destination.
+- Remove redundant collapse from dropped-pin and held-location trays.
+- Keep route smoothing out of joystick controls; clarify stick-controlled speed.
+- Make arrival an explicit menu and separate Add stop search from exact-path pauses.
+- Confirm recalculation before replacing saved/drawn geometry; preserve live-edit Hold.
+- GitHub run 43348423568 passed 653 checks and native compilation without compiler
+  warnings/errors. Test IPA delivered; no release. Phone evidence remains separate.
+
+## Build 77 - saved-pin annotation crash fix (8 November 2026)
+
+The supplied developer export contains an iOS crash report for build 76 at the
+Demo Garden Walk start. Its Locus UUID matches the delivered binary exactly.
+Exception type 6 / SIGTRAP (5) has Swift/SwiftUI frames above
+`SavedPinMapIcon.body` and its Button label, called during MapKit annotation layout.
+The log records three accepted location writes before exit. This is a recorded
+runtime trap, not a Jetsam report; the last sample was 380.8 MiB footprint with
+6275.2 MiB advisory headroom. It does not establish all other exits have this cause.
+
+Removed the annotation's required EnvironmentObject lookup. MapHomeView now passes
+pin size and label background explicitly. This preserves pin size, themes, labels,
+selection, favorites and explicit Teleport confirmation while avoiding a missing
+settings object in separately hosted/recycled annotation views. No persistence or
+connection behavior changed. Original report/extraction stays in ignored
+`.build/incident-76/`; exact binary symbols resolved the two app frames at offsets
+2979876 and 2977904. Codemagic `6af170c877f10fa3b05d9e17` passed all 652 checks (513 Swift, 104 cloud,
+18 Companion, 17 packaging; one Windows-only helper case skipped on Mac).
+Source `035a8468291078e4d59b57e85fe511a19c830f78`; native app/extension built with
+zero compiler warnings/errors. Verified both bundles 2.6.1 (77), arm64/SDK 27.1,
+compatibility IDs/entitlements, 13 icons and bundled helpers. Delivered only
+`Elsepin 2.6.1 build 77.ipa` (18,839,322 bytes) to the usual Desktop IPA folder,
+replacing build 76. Code is local and on both private remotes. No release or main
+merge. Phone acceptance pending: start Demo Garden Walk and zoom/select a saved pin.
+
+## Build 76 - Dev Mode, sweep selection and map hardening (8 November 2026)
+
+Private build 76 compiled and was delivered; 652 checks passed, with zero compiler
+warnings/errors. Phone acceptance remains pending. Owner reports build 75 still exits on satellite
+zoom and sometimes saving/zooming around a pin; no new incident export is present
+in Downloads. Owner currently reports no noticeable heat. These are device reports,
+not a confirmed crash cause or a measured energy result. No release is authorized.
+
+- Advanced & experimental -> Testing tools has Dev Mode. Demo library and ordinary
+  preferences use a separate defaults domain/file directory. Original library files
+  are never replaced. Stop/finish the session and recovery before switching; pending
+  saves finish first. Recreate drafts, reject stale library/import callbacks, refresh
+  widget snapshots, and reset demo edits on the next activation. Pairing, connected
+  accounts, security/icon settings, clear-state evidence and diagnostics stay global.
+- Fixtures include eight pins, six walk/run/cycle/e-bike/drive/mixed routes, second
+  and two-hour waits, folders, two areas, route history/recents and ten deleted items.
+  Synthetic paths are not verified roads. Real connection, cloud helper/signing
+  requirements and explicit Start/Teleport confirmation still apply.
+- Recently Deleted: drag the selection-circle gutter to select/deselect a contiguous
+  range, including fast/reversed gestures. Scroll normally elsewhere. Preserve
+  individual taps, accessibility actions, cancellation cleanup and deletion review.
+- Save a pin's full metadata with one publication/write. Delay native tap-coordinate
+  projection until a tap succeeds (not the first finger of a pinch). Pause covered
+  map callbacks and filter pin-editor annotations by the viewport. These remove
+  concrete churn/hazards but do not establish that the reported crash is resolved.
+- Opt-in diagnostics add current/peak memory footprint and advisory memory headroom;
+  map snapshots are rate limited to five seconds. No new polling loop. Numeric touch
+  formatting rejects nonfinite/out-of-range inputs instead of trapping.
+
+Validation: Codemagic `6af16be955fc448af77585cd`, source `1e7b5dc`, passed 513 Swift,
+104 cloud, 18 Companion and 17 packaging/resource tests. One Windows-only helper
+test was skipped on Mac and excluded. The native app/extension and unsigned IPA
+were verified as 2.6.1 (76), arm64, SDK 27.1. New tests cover workspace isolation,
+failed seeds, fixture round-trips, drag ranges and diagnostic values. The first
+native attempt's compiler complexity error and two concurrency warnings were fixed
+before the successful rebuild. No release or deployment; phone crash acceptance pending.
+
+## Unreleased — 2.6.1 build 75 (7 November 2026)
+
+- Clarify that naming a start/stop/destination labels that route and does not
+  create a saved pin. Keep search bars inside their own editors to prevent a
+  leftover search control over the route planner.
+- Retain prepared routes until the first confirmed write; return to the preview
+  after a definite no-write start failure. Preserve connection/clear warnings
+  when a previous or uncertain location may remain.
+- Keep smoothing specific to each active route, including recovery, saved
+  routes and recalculation. Label the active-route switch "This route only."
+- Harden native pin gestures and invalid map-camera/overlay inputs; add bounded
+  local map/start diagnostic events. Reported zoom-out crashes still need native
+  investigation and a fresh phone retest before being considered resolved.
+- Add Favorite/Unfavorite and confirmed Delete swipes to pins/routes, and
+  Restore/Delete in Recently Deleted. Keep active-route and trash protections.
+- Replace import paragraphs with grouped selected additions and exact setting
+  changes. Fix garbled separators and legacy surface comparisons; retain old
+  backup compatibility and prevent unchanged values appearing as new changes.
+- Private build 75 passed 640 checks, native app/extension compilation and IPA
+  inspection with zero compiler warnings/errors. Delivered to the Desktop project
+  IPA folder, replacing 74. First-build callback warning was fixed and rebuilt.
+  Zoom-crash and gesture acceptance still need a phone check. No public release.
+
+## Unreleased — 2.6.1 build 74 (6 November 2026)
+
+- Offer Keep current path or Recalculate when changing between route networks.
+- Remove redundant Whole route/Individual leg settings controls, Route notes and
+  Edit names & places. Use plain leg controls; consolidate expanded Options.
+- Put arrival behavior at Destination and naming in endpoint/stop menus, including
+  Name route at Start. Keep Move places on map.
+- Restore native back swipes in pushed editors. Expand Add Stop's map with search,
+  result selection and custom pins; confirm before adding. Exact-path pauses stay
+  on their path. Remove collapse arrow when the tray only shows idle guidance.
+- Compatibility, explicit movement confirmation and recovery remain unchanged.
+  Private build `b66aad4` passed 634 checks and native app/extension compilation,
+  zero compiler warnings/errors. Delivered build 74 to the Desktop project IPA
+  folder, replacing 73. Phone gesture/layout acceptance remains; no public release.
+
+## Unreleased — 2.6.1 build 73 (6 November 2026)
+
+- Tap the movement row between stops to change only that leg's mode and speed.
+  Saved and custom paths support this too. Speed-only edits reuse their path;
+  automatic routes recalculate when a different road/path network is needed.
+- A ready route ignores map pin taps until you close it with X. Planned routes
+  now appear in Recents before starting; tapping a recent route opens the planner.
+- Smaller map tray with inline shortcuts; remove its duplicate Settings and More
+  controls. Main Settings, explicit Start/Stop, collapse and touch targets remain.
+- Simplify planning into Stops, Whole route, Summary and one indented Options
+  group. Remove redundant timing paragraphs; retain stops, arrival behavior,
+  rehearsal, route warnings, drawing, GPX and saving.
+- Clarify Hybrid as Satellite + labels. Satellite remains imagery-only; old
+  map-style settings and backups keep their meaning. Old tray Settings choices
+  import successfully without restoring the removed button.
+- Cache the planner preview path and honor iOS 27's reduced-resource hint for
+  optional camera refresh/loading motion. Movement timing and Stop are unchanged.
+- Private build passed at `567e6c5`: 631 automated checks, native app/extension,
+  zero compiler warnings/errors, both bundles 2.6.1 (73). Delivered the IPA to
+  the Desktop project IPA folder, replacing build 72. No public release; device
+  UI and battery benefit are not established by compilation.
+
+## Unreleased — 2.6.1 build 72 (5 November 2026)
+
+- Reopen the developer service for explicit movement and Stop instead of trusting
+  a cached handle after VPN changes. Missing-endpoint checks wait at most 750 ms;
+  continuous playback keeps its existing cadence and connection.
+- Mark a potentially simulated location only immediately before a native write.
+  Canceling a first connection check no longer creates a false unfinished session.
+  An actual attempted write still requires an accepted clear; app exit is not proof.
+  Recovery state is acknowledged on disk before movement, preserving it even if
+  the process exits before asynchronous preferences finish saving.
+- Defer route endpoint/stop edits until search navigation returns. Freeze the search
+  route and the timeline's previous-row data during transitions. Add a directions
+  timeout and clearer disabled-preview guidance for unavailable cycling paths.
+- Label Live Activity age as "Sent" and hide that timer in unverified states.
+  The timer ages the last sent update; it is not a periodic background connection test.
+- Extend the local developer log with route/network stages and durations, screen,
+  current/peak memory, CPU/context switches, and complete bounded iOS diagnostic
+  reports when MetricKit supplies them. Routine observations batch; failures and
+  route handoffs flush promptly. No telemetry upload or credentials are included.
+- Build-71 feedback confirms search results arrived before the reported Add Stop
+  exit. No OS crash stack was in that export; the exact crash cause and new device
+  behavior require retesting.
+- Private native validation passed at `50467da`: 620 automated checks, app and
+  extension compilation, zero compiler warnings/errors and IPA verification.
+  Delivered build 72 to the Desktop project IPA folder, replacing build 71.
+  Physical route/VPN behavior and heat remain device-retest items. No publication.
+
+## Unreleased — 2.6.1 build 71 (5 November 2026)
+
+- Check the actual developer TCP endpoint before explicit location commands and
+  Stop; reject an unreachable endpoint before writing. Continuous movement reuses
+  the check for at most ten seconds. This is connection evidence, not verification
+  of Find My/Life360. Keep failed clear operations honest and retryable.
+- Correct garbled Stop/icon text and add a prebuild encoding regression check.
+  Show connecting/stopping/failed states instead of premature "Holding location."
+- Tap a saved map pin to select it for an explicit teleport. Enlarge saved pins by
+  default, with a 22–64 point Appearance slider and backward-compatible selective backups.
+- Star pins/routes immediately without a naming dialog. Unnamed pins use "Unnamed pin";
+  naming and favoriting stay separate. Retain existing names, folders, symbols and colors.
+- Compact map actions and Recently Deleted selection controls; retain touch targets,
+  accessibility layouts, restore and permanent-delete confirmation.
+- Add local CPU/peak-memory/thermal/work-state diagnostics and a "Phone feels warm"
+  log marker. Sample only while foregrounded and recording; stop failed-session
+  monitors, end precise fixes when sufficient, and release failed pairing audio.
+- Capture iOS icon error codes, check installed icon metadata and let successful
+  icon transitions settle. Clarify missing widget shared-storage signing access
+  and disable unavailable saved-shortcut controls. Signer/device acceptance is pending.
+- Native app/extension and IPA validation passed at `14d2050`: 615 automated
+  checks, zero compiler warnings/errors; one Windows-only test skipped on Mac.
+  Privately delivered build 71. Phone/signing/heat acceptance remains pending.
+  No release, deployment, or paid billing.
+
+## Unreleased — 2.6.1 build 70 (5 November 2026)
+
+- Show saved area outlines on the main map. The existing layers button now opens
+  Map options with independent Pins/Areas toggles and Standard/Hybrid/Satellite choices.
+- Remember layer visibility and include it in selective settings backup import/export;
+  old backups preserve current layer choices. Hiding a layer never deletes it,
+  changes area naming, hides the active route or sends a location.
+- Cache pin filtering between camera/library changes and reuse area polygon geometry
+  between library edits. No movement, connection-check or recovery cadence changes.
+- Move private IPA delivery to the owner's Desktop project IPA folder, with one latest
+  Elsepin IPA and no extra delivered files. Native validation passed; no publication.
+- After the GitHub suspension, resume authorized private hosting on GitLab in the
+  existing local folder. Reuse the manual Codemagic personal M2 workflow with a
+  dedicated read-only repository key; no paid billing, release or deployment.
+- Native app/extension and IPA inspection passed at `0e098f2`, with 611 distinct
+  tests and zero compiler warnings/errors. Build 70 privately replaced build 69
+  in the Desktop project IPA folder. Device acceptance and measured energy remain pending.
+
+## Unreleased — 2.6.1 build 69 (4 November 2026)
+
+- Separate named Pins from Favorites; favorites now group Pins and Routes. Name a pin without starring it, edit it on its own Library screen, and optionally favorite saved routes.
+- Show saved pin symbols on the main map; tap for a small name label. Keep movement confirmation separate.
+- Add area-editor search below the drawing instructions, preserving the outline while moving the camera.
+- Add recent-route history and separate pin/route actions. Naming saves to Library; history privacy controls cover both kinds.
+- Remove the Home search Saved places section, shorten the dropped-pin label, and improve general/category search with bounded waits, cancellation and a nearby fallback.
+- Search along an active route to browse/save places without redirecting it. Draft stop search retains route preview and shows partial results sooner.
+- Ask before using a walking path when a cycling/e-bike route is unavailable.
+- Reduce stop-wait wakeups and throttle camera following during thermal pressure without slowing simulated travel or changing connection checks.
+- Preserve legacy backup import, saved pin favorites, routes, areas, themes, icons, manual movement and recovery safeguards.
+- Add a manual private Codemagic Mac build alternative, preserving tests, complete logs and failure status; no automatic release or paid subscription.
+- Correct the library-only backup test fixture, remove a test cleanup concurrency warning, and fix the native MapKit fallback error-code conversion.
+- Native app/extension compilation and IPA validation passed in Codemagic at
+  `8b155ec`, with zero compiler warnings/errors and 609 distinct tests passed
+  across Mac and Windows checks. Build 69 was originally delivered in Downloads
+  and re-delivered to the Desktop project IPA folder on 5 November.
+  Device acceptance is pending; no release or deployment.
+
+## 2.6.1 (68) — compact route card and automatic trip recovery — private test build
+
+- Collapse/expand the active-route card while retaining progress, remaining distance,
+  Pause/Resume, Stop and actionable warnings. New routes open expanded.
+- Restore an interrupted route and its saved position on launch. A remembered running
+  trip saved within 24 hours gets one reconnect attempt in an unlocked foreground,
+  once Wi-Fi and pairing are available. LocalDevVPN must work. Travel resumes only
+  after the saved point is accepted; downtime is not added to distance or stop waits.
+- Paused trips, legacy checkpoints without recorded intent, older checkpoints and
+  failed reconnects require manual Resume/Retry. Stop/End route, discard and disabling
+  recovery revoke automatic intent. No background polling/reconnect loop was added.
+- On a delivered UIKit termination callback, preserve the checkpoint, cancel process
+  workers, close the engine command gate and attempt a clear on the existing serial
+  connection. Normal backgrounding remains unchanged. iOS can terminate without
+  this callback; clearing/activity removal cannot be guaranteed after force-kill.
+- Show saved/reconnecting state without claiming active spoofing. Preserve genuine
+  errors and explicit clearing when the device state remains unknown. A successful
+  clear alone, or proof no location was sent, clears the legacy unfinished marker.
+- Preserve compatibility IDs, backup formats, themes and bundled helper exports.
+  Build 67 is retained. No public release, deployment or public asset changes.
+- Native run 41526208045, attempt 3, passed all 600 tests (461 Swift, 104 cloud,
+  19 Companion, 16 packaging/icon), app/extension compilation and IPA verification,
+  with zero compiler warnings/errors. The private build 68 IPA is hash-verified in
+  Downloads. Earlier runner-allocation failures remain recorded in CURRENT-WORK.
+  Physical-phone acceptance remains pending; the release stays unpublished.
+
+## 2.6.1 (67) — native request progress — unpublished
+
+- Add native 20-point Thinking Orbs beside existing place search, route-stop search
+  and explicit cloud Test connection labels. Indicators follow existing requests;
+  cancellation, errors, results and manual movement controls are unchanged.
+- Keep progress static for Reduce Motion, Low Power Mode, inactive scenes and
+  disappeared views. Labels remain readable and announced once by VoiceOver;
+  existing typography, themes and accessibility text sizing are retained.
+- Pin the reviewed MIT-licensed ThinkingOrbsKit revision to the app target only;
+  retain its notice. No web bridge, AI service, new permissions or polling.
+- Include the separately reviewed removal of 264 unused production Swift lines.
+  Existing tests were retained; four motion-policy regression tests were added.
+- Native run 41518500417 passed 586 tests, app/extension compilation and IPA
+  validation with zero compiler warnings/errors. Build 67 is verified in Downloads.
+  No public release or website deployment.
+
+## Local cleanup after build 66 — 2 November 2026 — not built or published
+
+- Remove unreachable old pin/easter-egg views, unused Settings components, a redundant
+  named-area screen wrapper and unused getters/helpers. Current UI, data formats,
+  movement confirmation, security, accessibility and OS support are unchanged.
+- Remove 264 production Swift lines plus eight stale project references; no tests removed.
+- 443 Swift and 16 packaging tests pass; identity, appearance, helper archives and changed
+  source syntax checks pass. Native Xcode validation is pending permitted source upload.
+- Preserve build 66 artifacts. New skills/orb dependency remain uninstalled pending approval.
+
+## 2.6.1 (66) — incident export and experimental helper fixes — unpublished
+
+- Export retained events around a marked problem from the existing Session timeline:
+  up to five minutes before/after, associated notes, bounded streaming and explicit
+  missing/truncated-data metadata. Full export, opt-in recording and retention stay intact.
+- Link route hold/drag, manual jump/Undo/retry, queued writes and outcomes by attempt.
+  Record rejection/interruption without changing gesture, movement or confirmation rules.
+- Share recent provider reads between Nearby and spoof-checks without refreshing old
+  timestamps. Update sign-in/blocked readiness for Nearby-only failures; retain login
+  across transient timeouts and keep providers independent.
+- Package the Python runtime pin and correct setup instructions in the exported helpers.
+  Add an experimental/download audit and a complete ordered owner test walkthrough.
+- Portable validation: 443 Swift tests, 104 cloud, 19 companion and 16 packaging/icon
+  checks (582 total). Native run `41396515177` passed compilation, signing and
+  packaging with zero compiler warnings/errors. Both helpers also pass tests from
+  freshly extracted ZIPs. Build 66 is hash-verified in Downloads with the 216-step
+  checklist and test pack; real provider login, push delivery and phone gestures
+  require owner acceptance.
+- No public release, helper deployment or website update.
+
+## 2.6.1 (65) — native warning cleanup — 31 October 2026
+
+- Replace deprecated certificate access in the Windows companion and self-hosted
+  cloud helper delegates with `SecTrustCopyCertificateChain(...).first`. Retain
+  leaf SHA-256 pinning, host checks, rejected redirects and managed-HTTPS system
+  trust handling. No broader trust exception or credential change.
+- Mark the MainActor-created location manager's legacy delegate conformance with
+  checked `@preconcurrency`. Core Location delivers on its creation run loop;
+  preserve synchronous fresh-fix handling, cancellation and foreground-only checks.
+- Increment both target build numbers to 65 so native validation is distinguishable
+  from the user's ongoing build 64 route-crash test. UI and route code are unchanged.
+- Native run 41213887689 passed 565 tests and app/extension compilation with
+  zero compiler warnings/errors. The private IPA artifact passed integrity,
+  identity, icon/resource and hash checks. Build 64 in Downloads is unchanged;
+  no new Downloads/Drive delivery or release publication. Device checks remain pending.
+
+## 2.6.1 (64) — route interaction and stop discovery — 30 October 2026
+
+- Replace route-marker touch callbacks' SwiftUI map conversions with native
+  MapKit projection. Keep a weak map reference for marker drags; discard stale
+  marker state on disconnection/retry, backgrounding or route replacement.
+  Hold/drag remains preview-only; Teleport is still an explicit confirmation.
+- User-confirmed in build 63: keyboard Search works; route holding still exits
+  the app. A supplied optional developer log records successful location writes,
+  then `route_marker_hold_began`, followed by a new process. No jump was recorded.
+  This identifies the interaction boundary, not the exact iOS exception or a
+  verified fix. The supplied log does not include a retry attempt.
+- Add draft-stop search with Along route/Everywhere scopes, route/result map,
+  Coffee/Food/Groceries/Parks shortcuts, saved/recent places, addresses and
+  distance from the path. Filter and deduplicate actual coordinates; order
+  along-route matches and insert the chosen stop into the existing itinerary.
+  Rebuild the preview without starting movement. Live-path pause stops retain
+  their existing behavior; use Hold location and edit for a new destination detour.
+- Bound explicit MapKit searches to four cancellable requests; reject stale
+  results and disclose incomplete/long-route sampling. Distance from the path
+  is not a claimed detour time. No Google dependency, key or background polling.
+- Indent expanded Advanced/More options and give advanced child rows a subtle
+  theme-colored rail. Keep native controls, accessibility and all existing options.
+- Five portable corridor tests cover bent routes, invalid coordinates, bounded
+  regions, long routes, date-line geometry, stop insertion and deduplication.
+  Native validation passed: 565 tests, app/extension compilation and verified
+  Downloads delivery in run 41176847512. Three existing warnings remain;
+  phone acceptance is pending. Release remains unpublished.
+
+## 2.6.1 (63) — route/search follow-up — 30 October 2026
+
+- Keyboard Search and the general-search button now show matching places with
+  addresses. They do not silently choose the first result or open its action
+  dialog. Preserve autocomplete, favorites, cancellation and manual movement confirmation.
+- Harden route holds against stale route indexes and event-converter lifetime;
+  read the native map's touch coordinates and avoid reconfiguring its gestures
+  during a hold. Clear dragging state after backgrounding or leaving the map.
+- Calculate simulated route time with the playback acceleration/corner rules
+  when Smooth movement is enabled, including section speeds and stop waits.
+  Cache estimates; show Apple Maps' separate travel estimate where available.
+- Pace route updates from successful confirmations as well as dispatch time.
+  Account conservatively for recent write latency and prevent a slow update
+  followed by an immediate catch-up burst. Reset timing after jumps/resumes.
+  This improves coordinate timing; it cannot set or guarantee Life360's MPH.
+- Fit route name, remaining distance, ETA and progress into a shorter activity.
+  Keep update status, stale/error warnings and optional Find My/Life360 checks;
+  bound timer width and remove redundant command-age text.
+- Nine new timing/pacing regression tests cover this work. Final native run
+  `41174566247` passed all 560 tests plus compilation/package validation and the
+  verified IPA is in Downloads. Three existing warnings remain. Phone retests
+  are pending. These are fixes/hardening for reported full app exits; no crash
+  report was available, so the exact termination causes are not confirmed.
+  The Irvine trip's exact MapKit results and real travel time are unverified.
+- Preserve appearance defaults, pairing PIN handling, identifiers, backup formats
+  and explicit confirmation before a route jump. No public release.
+- Native attempt `41173992580` passed 557 tests but failed on a Swift map-view
+  type-check complexity error. Extracted search-dismissal handling into its
+  own method; the subsequent build must validate that correction and pacing.
+
+## 2.6.1 (62) — private UI test build — 30 October 2026
+
+Delivered privately to Downloads. Native run 41126221099 (private CI record)
+passed at source `a213d8b37a87759b0db719a9caa2ba571427330e`: 422 Swift, 14 packaging/icon,
+19 Companion and 96 cloud tests (551 total), native app/extension compilation and
+signature/package checks. Both bundles are 2.6.1 (62), SDK 27.1. Download integrity,
+thirteen icons and SHA-256 were verified. Three pre-existing certificate/delegate
+warnings remain; no new UI diagnostics. The release remains an unpublished draft.
+
+- Give the on-device pairing sheet three connected steps in task order and shorter
+  introductory text. Remove the Pairing help section per the preview feedback.
+  Preserve the real code/status display and native pairing lifecycle.
+- Use the selected theme behind the pairing sheet and the existing themed button
+  style for its primary actions, including existing Reduce Motion behavior.
+- Show all five draft route modes in a wrapping grid; use a single flexible column
+  for accessibility text sizes. Keep mode selection and speed behavior unchanged.
+- Preserve Bloom/Solid defaults, compact rounded text, the larger Settings identity
+  card, all themes/icons and backup compatibility. The preceding 57 focused tests
+  and syntax checks passed; native compilation has now passed. Device checks remain pending.
+
+## 2.6.1 (61) — unreleased follow-up — 29–30 October 2026
+
+- 30 October private test build: native run `41103527856` passed at source `e7065f2`, with 551 tests (422 Swift, 14 packaging/icon, 19 Companion, 96 cloud). Both bundles are 2.6.1 (61), SDK 27.1; the IPA passed package checks and matched GitHub SHA-256 `59031619b950c09b915b9b70ca7a29501dbef3cf2df321356f7098740fe91cbc`. Saved as `Elsepin 2.6.1 build 61.ipa` in Downloads. Three existing trust/delegate compiler warnings remain recorded in the build history. Release is still an unpublished draft; real-device acceptance is pending.
+- Show on-device pairing progress and the generated six-digit code in the existing Live Activity, including the expanded Dynamic Island. Start before leaving Elsepin for iPhone Settings; retain notification and in-app fallbacks. Respect the Live Activities preference and system authorization.
+- Clear pairing presentation on success/failure/cancel, reject late callbacks from cancelled attempts, and bound code visibility to five minutes after the latest pairing event. Codes stay out of logs/backups and are privacy-sensitive/stale-aware. This display deadline does not change the native protocol's validity.
+- Pairing follow-up: all 422 portable Swift tests passed, including eight new code, expiry, compatibility and activity-ownership tests. Changed native sources passed syntax parsing only; native compilation, background pairing and Island presentation remain pending. No IPA or publication.
+- Keep Settings compact while retaining the larger “MAKE IT YOURS / Your space. Your way.” card, icon and current theme/surface subtitle. Remove only the duplicate Appearance row; keep Appearance searchable and preserve all settings destinations.
+- Move the two-choice surface picker above the theme list, retaining all eight themes and thirteen icons.
+- Open the optional json.site helper inside an iOS Safari sheet. Done returns to import; file selection, copy, Paste and import confirmation remain explicit. No JavaScript bridge, automatic backup upload or clipboard reads.
+- Align import/export actions with Settings icon rows; move concise JSON instructions into the section footer.
+- 30 October checks: 60 focused Swift import/backup/appearance/search tests passed, plus syntax parsing of changed UI sources. This is not iOS SDK type-checking or device acceptance.
+
+
+- Keep Settings search in the native swipe-revealed drawer; use a compact navigation title and 16-point content-top spacing to address the reported crowding between search and the first card. Device scroll/layout acceptance remains pending.
+- Simplify Surfaces to Solid first and Liquid Glass second. New/reset preferences use Solid. Remove Theme default and its reset button; old `theme` values decode as Solid without changing explicit Glass choices.
+- Verify old-backup import/re-export and surface persistence: 414 Swift tests and 14 Python script tests passed. No new native build, IPA, release or deployment for build 61. The delivered build 60 does not contain this follow-up.
+
+## 2.6.1 (60) — private test build — 28 October 2026
+
+- Default to Bloom; remove Abyss with a compatibility mapping to Bloom for existing settings and backups.
+- Fix typography to rounded/compact while respecting accessibility sizes. Remove font, text-size and color-mode controls; retain theme and surface selection and all thirteen icons.
+- Preserve backup schema and old-file decoding, hide retired controls in import review, and export compatible fixed typography values.
+- Refresh website catalog source; not deployed. No paid feature gates added.
+- Verified 410 portable Swift tests, 14 Python tests, appearance/identity/helper checks and static website generation. Native app/extension build and IPA validation subsequently passed in run `40826806154`; test IPA delivered privately. Device acceptance pending; release remains unpublished.
+- See [draft release notes](docs/releases/2.6.1-DRAFT.md).
 
 ## 2.6.0 (59) — official — 27 October 2026
 
