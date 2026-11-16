@@ -1,6 +1,6 @@
 # Elsepin changelog
 
-Updated through **15 November 2026**, including test build 86.
+Updated through **15 November 2026**, including test build 87.
 **Public release: 2.6.0 (59). Next release: 2.6.1, in final testing and not published.**
 
 [What's coming in 2.6.1](docs/CHANGES-SINCE-2.6.0.md) · [Build history](docs/BUILD-HISTORY.md) · [Setup](SETUP.md)
@@ -8,6 +8,19 @@ Updated through **15 November 2026**, including test build 86.
 Earlier entries describe their original development checkpoints. A later build may
 supersede a pending check or an intermediate behavior. The build history records
 successful packages separately from failed attempts and simulator/device evidence.
+
+## Build 87 - Usual speeds and reusable itineraries (15 November 2026)
+
+- Use Usual speeds for new drawn, planned and next-route drafts and newly chosen
+  movement modes. Preserve speeds already assigned to saved/prepared routes.
+- Offer Keep current path or Recalculate directions when changing a saved,
+  drawn or GPX leg to a different route network.
+- Add Recalculate with another mode to route options. Reuse the start, destination,
+  stop names, order and waits. Edit the draft without changing the Library copy;
+  restore the previous path after failed directions. Existing stop limits remain.
+- Pass 725 automated checks (one additional Windows-only test skipped), compile
+  the native app and extension cleanly, and verify the production IPA package.
+  The new UI check compiled, but runner boot/app-readiness failures prevented an interaction result; physical confirmation remains pending.
 
 ## Build 86 - live pin visibility during zoom (15 November 2026)
 

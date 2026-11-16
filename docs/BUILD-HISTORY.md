@@ -1,6 +1,6 @@
 # Elsepin build history
 
-**Public release:** [2.6.0 (59)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0). **In final testing:** 2.6.1 through build 86. No 2.6.1 release is published.
+**Public release:** [2.6.0 (59)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0). **In final testing:** 2.6.1 through build 87. No 2.6.1 release is published.
 
 [Feature-by-feature changes](CHANGES-SINCE-2.6.0.md) · [Complete chronological update log](../CHANGELOG.md)
 
@@ -10,6 +10,7 @@ All entries below are development/test builds, not public releases. A passing bu
 
 | Build | Date | Changes and result |
 | --- | --- | --- |
+| 87 | 15 Nov 2026 | Usual speeds for new drafts/modes; recalculate saved itineraries without re-entering places. 725 checks; verified test IPA delivered. New UI check blocked by simulator startup. |
 | 86 | 15 Nov 2026 | Live pin visibility during pinch, consistent rotated-map scale. 724 checks; verified test IPA. |
 | 85 | 15 Nov 2026 | Pairing cancel/retry and import race fixes; approved recovery wording; separate website rewrite. 718 checks; test IPA. |
 | 84 | 14 Nov 2026 | Corrected idle/route tray spacing; focused simulator layout checks. 711 checks; test IPA. |

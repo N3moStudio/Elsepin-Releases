@@ -76,9 +76,9 @@ Set **pin size and zoom visibility**. Pins update while you pinch and rotate. Sh
 **Also included:** eight themes · thirteen app icons · Solid or Liquid Glass · mph/km/h · GPX import/export · Live Activities · widgets where signing allows them.
 
 <details>
-<summary><strong>Finishing now: Usual speeds and saved-route recalculation</strong></summary>
+<summary><strong>Latest test build: Usual speeds and saved-route recalculation</strong></summary>
 
-Build 87 is being validated. New routes and mode changes use your Usual speeds, while saved trips keep their assigned speeds. Recalculate a saved itinerary in another mode without re-entering its start, stops or destination. Keep the original path or restore it if directions fail.
+Build 87 is available for testing; its new UI check is still pending after simulator startup failures. New routes and mode changes use your Usual speeds, while saved trips keep their assigned speeds. Recalculate a saved itinerary in another mode without re-entering its start, stops or destination. Keep the original path or restore it if directions fail.
 
 </details>
 

@@ -1,8 +1,11 @@
 # What's coming in Elsepin 2.6.1
 
-Changes through test build 86, 15 November 2026. **2.6.0 remains the public release.** Final physical-iPhone testing is in progress; the 2.6.1 release is an unpublished draft.
+Changes through test build 87, 15 November 2026. **2.6.0 remains the public release.** Final physical-iPhone testing is in progress; the 2.6.1 release is an unpublished draft.
 
 ## Routes that keep your choices
+
+- Use Usual speeds for new routes and newly selected movement modes. Keep explicitly assigned speeds when reopening a saved/prepared route.
+- Recalculate a saved itinerary in another mode without entering its places again. Keep the start, stop names/order/waits and destination; the Library copy changes only when saved. Saved/drawn/GPX legs also offer an explicit Keep path/Recalculate choice.
 
 - Set walking, running, cycling, e-bike or driving movement and speed separately for each leg. Changing modes offers Keep current path or Recalculate when a different route network is needed.
 - Keep the route preview visible while planning, including before endpoints are chosen or when directions fail. Reopen planned routes from Recents without replacing their saved geometry.
@@ -54,15 +57,17 @@ Changes through test build 86, 15 November 2026. **2.6.0 remains the public rele
 
 ## Existing experiments and future work
 
-Build 86 still contains the earlier optional Find My Devices/Life360 helpers. Their polling, authentication handling and freshness checks received fixes during this cycle, but real account access and web push delivery are separate from automated tests. Find My People remains unsupported.
+Build 87 still contains the earlier optional Find My Devices/Life360 helpers. Their polling, authentication handling and freshness checks received fixes during this cycle, but real account access and web push delivery are separate from automated tests. Find My People remains unsupported.
 
 Retiring those experiments and starting a fresh Life360-only map feature is deferred. Official access will be investigated first, with a private helper only as a fallback. None of that proposed replacement is claimed as shipped in 2.6.1.
 
 ## Validation so far
 
-Build 86 passed **724 automated checks**: 580 Swift, 104 cloud-helper, 18 Windows-helper and 22 resource checks. One Windows-only case was skipped on the Mac runner. The production app and extension compiled without compiler warnings or errors; the IPA's identities, versions, resources and device code were inspected.
+Build 87 passed **725 automated checks**: 581 Swift, 104 cloud-helper, 18 Windows-helper and 22 resource checks. One Windows-only case was skipped on the Mac runner. The production app and extension compiled without compiler warnings or errors; the IPA's identities, versions, resources and device code were inspected.
 
 Fourteen distinct simulator UI cases passed across the focused validation runs, including narrow/large-text controls, long names, search recovery, bottom spacing, and live pinch/rotation visibility. Connection and movement fixtures were explicitly simulated. They do not prove real pairing, spoofing, Stop/clear, signing compatibility or battery behavior.
+
+Build 87's new speed/recalculation UI case compiled, but two attempts could not reach a usable simulator session; no interaction pass or screenshots are claimed.
 
 Final iPhone acceptance and an official-channel package are still required before publication. The current test IPA is not a published release.
 
