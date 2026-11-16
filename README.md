@@ -2,11 +2,11 @@
 
 <p align="center">
   <strong>More control over routes. A better map. A simpler library.</strong><br>
-  <sub>In final testing · The current public release is still 2.6.0</sub>
+  <sub>Released 16 November 2026 · Version 2.6.1, build 89</sub>
 </p>
 
 <p align="center">
-  <a href="https://github.com/N3moStudio/Elsepin-Releases/releases/latest">Current download</a> &nbsp; / &nbsp;
+  <a href="https://github.com/N3moStudio/Elsepin-Releases/releases/download/v2.6.1/Elsepin-2.6.1.ipa">Download IPA</a> &nbsp; / &nbsp;
   <a href="SETUP.md">Setup</a> &nbsp; / &nbsp;
   <a href="CHANGELOG.md">Full update log</a>
 </p>
@@ -58,7 +58,7 @@ Set **pin size and zoom visibility**. Pins update while you pinch and rotate. Sh
 
 ### ◌ Try it with demo data
 
-**Dev Mode keeps your real library separate.** Explore sample routes, pins and areas, then switch back. Review backup additions and setting changes before importing. Existing backups still work.
+**Dev Mode keeps your real library separate.** Explore sample routes, pins and areas, then switch back. Import backups from Files or pasted text, and review changes first.
 
 </td>
 </tr>
@@ -76,9 +76,9 @@ Set **pin size and zoom visibility**. Pins update while you pinch and rotate. Sh
 **Also included:** eight themes · thirteen app icons · Solid or Liquid Glass · mph/km/h · GPX import/export · Live Activities · widgets where signing allows them.
 
 <details>
-<summary><strong>Latest test build: Usual speeds and saved-route recalculation</strong></summary>
+<summary><strong>Usual speeds and saved-route recalculation</strong></summary>
 
-Build 87 is available for testing; its new UI check is still pending after simulator startup failures. New routes and mode changes use your Usual speeds, while saved trips keep their assigned speeds. Recalculate a saved itinerary in another mode without re-entering its start, stops or destination. Keep the original path or restore it if directions fail.
+New routes and mode changes use your Usual speeds, while saved trips keep their assigned speeds. Recalculate a saved itinerary in another mode without re-entering its start, stops or destination. Keep the original path or restore it if directions fail.
 
 </details>
 

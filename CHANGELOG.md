@@ -1,13 +1,35 @@
 # Elsepin changelog
 
-Updated through **15 November 2026**, including test build 87.
-**Public release: 2.6.0 (59). Next release: 2.6.1, in final testing and not published.**
+Updated through **16 November 2026**, including official build 89.
+**Public release: [2.6.1 (89)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.1).**
 
-[What's coming in 2.6.1](docs/CHANGES-SINCE-2.6.0.md) · [Build history](docs/BUILD-HISTORY.md) · [Setup](SETUP.md)
+[What's new in 2.6.1](docs/CHANGES-SINCE-2.6.0.md) · [Build history](docs/BUILD-HISTORY.md) · [Setup](SETUP.md)
 
 Earlier entries describe their original development checkpoints. A later build may
 supersede a pending check or an intermediate behavior. The build history records
 successful packages separately from failed attempts and simulator/device evidence.
+
+## Build 89 - Official 2.6.1 release (16 November 2026)
+
+- Switch the app's update channel to stable and increment both bundle builds.
+  Features and fixes are unchanged from build 88. Official installs will not
+  offer this same version as another update.
+- Publish the IPA and concise release notes in Elsepin-Releases. Keep the app
+  source private and preserve the full development history below.
+- Pass 727 automated checks and native app/extension compilation with no compiler
+  warnings or errors. Verify the stable channel, both bundle builds and the IPA.
+
+## Build 88 - Backup file selection (16 November 2026)
+
+- Use a native file picker with explicit selection and cancellation. Allow backup
+  files without relying on a provider's JSON type, then validate their content.
+  Read scoped file access in the background; preserve Paste backup text.
+- Pass 727 automated checks, with one additional Windows-only case skipped.
+  Compile and inspect the production app and extension without compiler warnings
+  or errors. Signed-iPhone file-import acceptance has not been reported.
+- Repair the separate simulator setup and pass all three route/speed UI cases:
+  usual speeds in new routes, custom speeds after saving/reopening, and saved
+  itinerary recalculation. Simulated directions do not validate device spoofing.
 
 ## Build 87 - Usual speeds and reusable itineraries (15 November 2026)
 

@@ -1,15 +1,17 @@
 # Elsepin build history
 
-**Public release:** [2.6.0 (59)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.0). **In final testing:** 2.6.1 through build 87. No 2.6.1 release is published.
+**Public release:** [2.6.1 (89)](https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.1), 16 November 2026.
 
 [Feature-by-feature changes](CHANGES-SINCE-2.6.0.md) · [Complete chronological update log](../CHANGELOG.md)
 
-## 2.6.1 development builds
+## 2.6.1 build register
 
-All entries below are development/test builds, not public releases. A passing build does not prove physical pairing, signing, location clearing or battery behavior.
+Build 89 is the official package; builds 60–88 were development/test builds. A passing build does not prove physical pairing, signing, location clearing or battery behavior.
 
 | Build | Date | Changes and result |
 | --- | --- | --- |
+| 89 | 16 Nov 2026 | Official update channel; features unchanged from 88. 727 checks, clean native app/extension compilation and verified release IPA. Source stayed private. |
+| 88 | 16 Nov 2026 | Native backup file selection/cancellation and scoped background reading; paste retained. 727 checks; verified test IPA. Three route/speed UI cases passed after simulator repair; file-import provider UI remained blocked. |
 | 87 | 15 Nov 2026 | Usual speeds for new drafts/modes; recalculate saved itineraries without re-entering places. 725 checks; verified test IPA delivered. New UI check blocked by simulator startup. |
 | 86 | 15 Nov 2026 | Live pin visibility during pinch, consistent rotated-map scale. 724 checks; verified test IPA. |
 | 85 | 15 Nov 2026 | Pairing cancel/retry and import race fixes; approved recovery wording; separate website rewrite. 718 checks; test IPA. |
@@ -41,9 +43,11 @@ All entries below are development/test builds, not public releases. A passing bu
 
 ### Current validation
 
-Build 86 passed 724 checks: 580 Swift, 104 cloud-helper, 18 Windows-helper and 22 resource checks. One Windows-only case was skipped on the Mac. The production app and extension compiled without compiler warnings/errors. Package inspection verified both bundle versions, device executables, icons/resources and absence of simulator fixtures.
+Official build 89 passed 727 checks: 581 Swift, 104 cloud-helper, 18 Windows-helper and 24 resource checks. One Windows-only case was skipped on the Mac. The production app and extension compiled without compiler warnings/errors. Package inspection verified both bundles at 2.6.1 (89), the stable update channel, device executables, icons/resources and absence of simulator fixtures.
 
-Fourteen distinct simulator UI cases passed across focused runs, including narrow/large-text layouts, search cancellation/retry, connecting/paused/failed presentations, bottom spacing and continuous pinch/rotation visibility. Their connection and movement states were test fixtures. Final physical-iPhone testing is still in progress.
+Fourteen distinct simulator UI cases passed across focused runs, including narrow/large-text layouts, search cancellation/retry, connecting/paused/failed presentations, bottom spacing and continuous pinch/rotation visibility. Three additional route/speed cases then passed after simulator repair, including save/reopen and itinerary preservation. Their connection and directions responses were test fixtures.
+
+Backup rules and native export passed, but the simulator Files provider blocked a complete import UI result. The final signed-iPhone file-import outcome has not been reported; it is not counted as a pass.
 
 <details>
 <summary>Intermediate failures and corrections</summary>
@@ -54,6 +58,7 @@ Fourteen distinct simulator UI cases passed across focused runs, including narro
 - Build 79 first failed because a row hit-test helper lacked its required import. The final run passed after correction and integration checks.
 - Build 83 was an interim IPA. Phone feedback exposed the bottom-spacing regression corrected in 84.
 - Pin-visibility simulator attempts initially hit an overlapping route-menu control rather than the intended test input. Fixture placement was corrected; the final actual pinch/rotation case passed. These were not recorded as production app crashes.
+- Build 89's first attempt stopped at private-source authentication. The temporary read-only key was corrected; the next run completed all checks and packaging without making the source public.
 
 </details>
 

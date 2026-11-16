@@ -1,6 +1,6 @@
-# What's coming in Elsepin 2.6.1
+# What's new in Elsepin 2.6.1
 
-Changes through test build 87, 15 November 2026. **2.6.0 remains the public release.** Final physical-iPhone testing is in progress; the 2.6.1 release is an unpublished draft.
+Released 16 November 2026 as **2.6.1 (89)**. Build 89 contains build 88's features and fixes with official-release metadata. [Short release notes](releases/2.6.1.md).
 
 ## Routes that keep your choices
 
@@ -26,6 +26,7 @@ Changes through test build 87, 15 November 2026. **2.6.0 remains the public rele
 - Undo and Redo area corners. New edits clear Redo, and reopening does not bring back an earlier draft's history.
 - Swipe to favorite/unfavorite or delete saved pins and routes; restore or delete items in Recently Deleted. Sweep selection follows actual row positions.
 - Review imports as selected additions and exact setting changes. Older backups remain compatible; re-importing does not duplicate existing items.
+- Choose a backup through the native Files picker, including files whose provider does not identify them as JSON. Selection, cancellation and reading have explicit handling; Paste backup text remains available.
 
 ## Maps and controls
 
@@ -57,18 +58,18 @@ Changes through test build 87, 15 November 2026. **2.6.0 remains the public rele
 
 ## Existing experiments and future work
 
-Build 87 still contains the earlier optional Find My Devices/Life360 helpers. Their polling, authentication handling and freshness checks received fixes during this cycle, but real account access and web push delivery are separate from automated tests. Find My People remains unsupported.
+This release still contains the earlier optional Find My Devices/Life360 helpers. Their polling, authentication handling and freshness checks received fixes during this cycle, but real account access and web push delivery are separate from automated tests. Find My People remains unsupported.
 
 Retiring those experiments and starting a fresh Life360-only map feature is deferred. Official access will be investigated first, with a private helper only as a fallback. None of that proposed replacement is claimed as shipped in 2.6.1.
 
-## Validation so far
+## Validation and limits
 
-Build 87 passed **725 automated checks**: 581 Swift, 104 cloud-helper, 18 Windows-helper and 22 resource checks. One Windows-only case was skipped on the Mac runner. The production app and extension compiled without compiler warnings or errors; the IPA's identities, versions, resources and device code were inspected.
+Official build 89 passed **727 automated checks**: 581 Swift, 104 cloud-helper, 18 Windows-helper and 24 resource checks. One Windows-only case was skipped on the Mac runner. The production app and extension compiled without compiler warnings or errors; the IPA's identities, versions, stable update channel, resources and device code were inspected. See [Build history](BUILD-HISTORY.md).
 
 Fourteen distinct simulator UI cases passed across the focused validation runs, including narrow/large-text controls, long names, search recovery, bottom spacing, and live pinch/rotation visibility. Connection and movement fixtures were explicitly simulated. They do not prove real pairing, spoofing, Stop/clear, signing compatibility or battery behavior.
 
-Build 87's new speed/recalculation UI case compiled, but two attempts could not reach a usable simulator session; no interaction pass or screenshots are claimed.
+After repairing the simulator test setup, all three additional route UI cases passed: Usual speeds in new drafts, saved custom leg speeds after reopening, and recalculation with itinerary details preserved. Screenshots were inspected. Directions and connection responses in these tests were controlled fixtures.
 
-Final iPhone acceptance and an official-channel package are still required before publication. The current test IPA is not a published release.
+Backup rules and native export were checked, but simulator Files-provider failures prevented a complete file-import UI pass. The final signed-iPhone file-import result has not been reported. Automated checks do not establish real pairing, location clearing, signing compatibility or battery behavior.
 
 [Complete chronological changelog](../CHANGELOG.md) · [Build history](BUILD-HISTORY.md) · [Setup](../SETUP.md)
