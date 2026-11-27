@@ -3,110 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b121c">
-  <title>Elsepin — Make your next move</title>
-  <meta name="description" content="Simulate your iPhone’s location with Elsepin. Pick a pin, plan a route, set your pace, and explore eight themes in the appearance studio.">
-  <meta property="og:title" content="Elsepin — Make your next move">
-  <meta property="og:description" content="Your places. Your pace. Your palette. A location simulation app for iPhone.">
+  <meta name="theme-color" content="#fdfdfa">
+  <title>Elsepin — Location Simulator for iPhone</title>
+  <meta name="description" content="Simulate a location on your iPhone with Elsepin. Choose a pin, plan a route with custom speeds and stops, and save your favorite places.">
+  <link rel="canonical" href="https://elsepin.onrender.com/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Elsepin">
+  <meta property="og:title" content="Elsepin — Location Simulator for iPhone">
+  <meta property="og:description" content="Choose a pin, plan a route with custom speeds and stops, and save your favorite places.">
+  <meta property="og:url" content="https://elsepin.onrender.com/">
+  <meta property="og:image" content="https://elsepin.onrender.com/assets/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Elsepin app icon and a route planner on iPhone">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/prism.png">
   <link rel="apple-touch-icon" href="assets/prism.png">
   <link rel="preload" href="fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/sora.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="catalog.js"></script><script defer src="app.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body class="landing">
 <a tabindex="0" class="skip" href="#main">Skip to content</a>
-<header class="site-header shell glass"><a tabindex="0" class="wordmark" href="index.html" aria-label="Elsepin home"><img src="assets/prism.png" width="38" height="38" alt="">elsepin</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <svg class="icon" aria-hidden="true"><use href="symbols.svg#menu"/></svg></button><nav id="navigation" aria-label="Main navigation"><a tabindex="0" href="#experience">Explore</a><a tabindex="0" href="#studio">Appearance</a><a tabindex="0" href="guide.html">Get started</a><button class="nav-preview" type="button" data-open-preview>Open preview <svg class="icon" aria-hidden="true"><use href="symbols.svg#external"/></svg></button></nav></header>
+<header class="site-header shell">
+  <a tabindex="0" class="wordmark" href="index.html" aria-label="Elsepin home"><img src="assets/prism.png" width="38" height="38" alt="">Elsepin</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <svg class="icon" aria-hidden="true"><use href="symbols.svg#menu"/></svg></button>
+  <nav id="navigation" aria-label="Main navigation">
+    <a tabindex="0" href="#experience">Explore</a><a tabindex="0" href="guide.html">Setup guide</a>
+    <a tabindex="0" class="nav-cta" href="/downloads/Elsepin-2.6.1-build100.ipa" download>Download</a>
+  </nav>
+</header>
 <main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-map-scene" aria-hidden="true"><img class="hero-map-image" src="city-map.svg" width="1400" height="1050" alt=""><div class="map-marker hero-marker"><img src="assets/prism.png" width="72" height="72" alt=""></div></div>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="shell hero-content"><h1 id="hero-title">Elsewhere.<br><span>On your terms.</span></h1><p class="lead">A different location. A route at your pace. <br>Make your next move with Elsepin for iPhone.</p><div class="actions"><button class="button pale" type="button" data-open-preview>Open preview <svg class="icon" aria-hidden="true"><use href="symbols.svg#play"/></svg></button><a tabindex="0" class="button ghost" href="guide.html">Get started <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></a></div><p class="small-note">Location simulation. Requires sideloading,<br>iPhone pairing, and LocalDevVPN.</p></div>
-  <div class="hero-floating glass"><span class="floating-pin"><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg></span><div><strong>Your next destination</strong><span>Wherever you choose.</span></div><svg class="icon" aria-hidden="true"><use href="symbols.svg#check"/></svg></div>
-  <div class="hero-bottom shell"><a tabindex="0" href="#experience">Take the scenic route <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></a><span>Illustrated map · no live session</span></div>
-</section>
-<section id="experience" class="scroll-story" aria-label="Explore how Elsepin works">
-  <div class="story-visual" aria-hidden="true"><div class="story-map-wrap"><img class="story-map" src="city-map.svg" width="1400" height="1050" alt=""><div class="story-dot"></div></div><div class="story-hud glass"><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg><div><strong id="story-state">A place to begin</strong><span id="story-detail">Search. Select. Make it yours.</span></div><span class="story-count">01 / 03</span></div><span class="story-map-note">Illustration of a journey</span></div>
-  <div class="shell story-steps"><article class="story-step" data-story="0"><div><h2>Start with<br><em>a little here.</em></h2><p>Find a place. Drop a pin. Give it a name that means something to you.</p><span class="story-feature"><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg>Search, pins & named areas</span></div></article><article class="story-step" data-story="1"><div><h2>Take the<br><em>long way.</em></h2><p>Plan each stop and set the speed for each leg. Pause when you want. Keep Stop close at hand.</p><span class="story-feature"><svg class="icon" aria-hidden="true"><use href="symbols.svg#route"/></svg>Your route. Your pace.</span></div></article><article class="story-step" data-story="2"><div><h2>Keep your<br><em>kind of places.</em></h2><p>Save the route. Favorite the pin. Keep your library together, with backups you can review before importing.</p><button class="text-link" type="button" data-open-preview>Find your look <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></button></div></article></div>
-</section>
-  <section class="studio-section section-space" id="studio" aria-labelledby="studio-title">
-    <div class="shell studio-heading"><h2 id="studio-title">Same app.<br><em>Every shade of you.</em></h2><p>Eight themes. Thirteen icons.<br>Try a look, then make it your own in Elsepin.</p></div>
-    <div id="studio-slot" class="shell"><div id="studio-body" class="studio">
-      <div class="studio-controls">
-        <h3>Choose a theme</h3>
-        <div id="themes" class="theme-choices" role="group" aria-label="Preview theme"></div>
-        <div class="theme-description"><div><h4 id="theme-name">Bloom</h4><div id="swatches" class="swatches" aria-hidden="true"></div></div><p id="theme-detail">Petal pink and berry. The app’s default, with a softer side.</p></div>
-        <div class="preview-options"><label for="surface">Surfaces</label><select id="surface" disabled><option value="solid">Solid</option><option value="glass">Glass</option></select></div>
-        <div class="preview-options"><label for="mode">Device appearance</label><select id="mode" aria-describedby="mode-help" disabled><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
-        <p id="mode-help" class="control-help">Bloom uses light appearance. Choose Glacier to preview your device’s light and dark settings.</p>
-        <div class="icon-section"><h3>Choose an icon</h3><p>Independent of your theme. Original artwork, from the app’s collection.</p><div id="icons" class="icon-choices" role="group" aria-label="Preview app icon"></div><p id="selected-icon-label">Prism Jumpgate</p></div>
-        <button id="reset-preview" class="text-link reset" type="button" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#reset"/></svg>Reset to app defaults</button>
-        <button class="text-link preview-jump" type="button" data-open-preview>Open full preview <svg class="icon" aria-hidden="true"><use href="symbols.svg#external"/></svg></button>
+  <div class="shell hero-content">
+    <div class="hero-copy">
+      <h1 id="hero-title">Your iPhone, anywhere.</h1>
+      <p class="lead">Simulate your iPhone’s location. Set a pin, build a route with your own stops and speeds, and save places you want to revisit.</p>
+      <div class="actions">
+        <a tabindex="0" class="button pale" href="/downloads/Elsepin-2.6.1-build100.ipa" download>Download for iPhone</a>
+        
       </div>
-      <div class="phone-stage" id="preview-stage">
-        <div class="preview-identity"><img id="preview-icon" src="assets/prism.png" width="52" height="52" alt="Selected app icon"><div><strong>Elsepin</strong><span id="icon-name">Prism Jumpgate</span></div><span class="preview-badge">Web preview</span></div>
-        <div id="phone" class="phone" data-screen="map">
-          <div class="phone-status" aria-hidden="true"><b>9:41</b><i></i><svg viewBox="0 0 42 16"><path d="M1 12V9m4 3V6m4 6V3" stroke="currentColor" stroke-width="3"/><rect x="21" y="3" width="16" height="10" rx="2" fill="none" stroke="currentColor"/><path d="M24 6h10v4H24zM39 6v4" stroke="currentColor"/></svg></div>
-          <section class="phone-screen map-screen" id="screen-map" aria-label="Map illustration">
-            <div class="phone-search"><svg class="icon" aria-hidden="true"><use href="symbols.svg#search"/></svg><span>Where do you want to go?</span></div>
-<div class="demo-map">
-<svg class="map-art" viewBox="0 0 340 310" aria-hidden="true">
- <rect width="340" height="310" fill="var(--canvas)"/>
- <g fill="var(--road)" opacity=".48"><rect x="10" y="12" width="31" height="27" rx="3"/><rect x="52" y="12" width="31" height="27" rx="3"/><rect x="94" y="12" width="31" height="27" rx="3"/><rect x="136" y="12" width="31" height="27" rx="3"/><rect x="178" y="12" width="31" height="27" rx="3"/><rect x="220" y="12" width="31" height="27" rx="3"/><rect x="262" y="12" width="31" height="27" rx="3"/><rect x="304" y="12" width="31" height="27" rx="3"/><rect x="10" y="50" width="31" height="27" rx="3"/><rect x="52" y="50" width="31" height="27" rx="3"/><rect x="94" y="50" width="31" height="27" rx="3"/><rect x="220" y="50" width="31" height="27" rx="3"/><rect x="262" y="50" width="31" height="27" rx="3"/><rect x="304" y="50" width="31" height="27" rx="3"/><rect x="10" y="88" width="31" height="27" rx="3"/><rect x="52" y="88" width="31" height="27" rx="3"/><rect x="94" y="88" width="31" height="27" rx="3"/><rect x="220" y="88" width="31" height="27" rx="3"/><rect x="262" y="88" width="31" height="27" rx="3"/><rect x="304" y="88" width="31" height="27" rx="3"/><rect x="10" y="126" width="31" height="27" rx="3"/><rect x="52" y="126" width="31" height="27" rx="3"/><rect x="94" y="126" width="31" height="27" rx="3"/><rect x="220" y="126" width="31" height="27" rx="3"/><rect x="262" y="126" width="31" height="27" rx="3"/><rect x="304" y="126" width="31" height="27" rx="3"/><rect x="10" y="164" width="31" height="27" rx="3"/><rect x="52" y="164" width="31" height="27" rx="3"/><rect x="94" y="164" width="31" height="27" rx="3"/><rect x="220" y="164" width="31" height="27" rx="3"/><rect x="262" y="164" width="31" height="27" rx="3"/><rect x="304" y="164" width="31" height="27" rx="3"/><rect x="10" y="202" width="31" height="27" rx="3"/><rect x="52" y="202" width="31" height="27" rx="3"/><rect x="94" y="202" width="31" height="27" rx="3"/><rect x="136" y="202" width="31" height="27" rx="3"/><rect x="178" y="202" width="31" height="27" rx="3"/><rect x="220" y="202" width="31" height="27" rx="3"/><rect x="262" y="202" width="31" height="27" rx="3"/><rect x="304" y="202" width="31" height="27" rx="3"/><rect x="10" y="240" width="31" height="27" rx="3"/><rect x="52" y="240" width="31" height="27" rx="3"/><rect x="94" y="240" width="31" height="27" rx="3"/><rect x="136" y="240" width="31" height="27" rx="3"/><rect x="178" y="240" width="31" height="27" rx="3"/><rect x="220" y="240" width="31" height="27" rx="3"/><rect x="262" y="240" width="31" height="27" rx="3"/><rect x="304" y="240" width="31" height="27" rx="3"/></g>
- <path d="M0 271Q87 230 149 272T340 253V310H0Z" fill="var(--water)"/>
- <rect x="99" y="25" width="105" height="156" rx="16" fill="var(--park)"/>
- <path d="M113 42q64 15 70 43t-28 69q-40-8-40-35t45-57" fill="none" stroke="var(--surface)" stroke-width="3"/>
- <ellipse cx="164" cy="101" rx="17" ry="29" fill="var(--water)"/>
- <g fill="none" stroke="var(--surface)" stroke-width="5"><path d="M0 45H99M204 45H340M0 83H99M204 83H340M0 121H99M204 121H340M0 159H99M204 159H340M0 197H340M0 235H340M48 0V267M90 0V256M216 0V285M258 0V282M300 0V270"/><path d="m-10 158 350 100" stroke-width="9"/></g>
- <g fill="var(--muted)" font-family="Manrope,sans-serif" font-size="9" font-weight="600"><text x="115" y="161">THE GARDENS</text><text x="238" y="218">WATERFRONT</text><text x="19" y="35">WEST END</text></g>
- <path id="preview-route" d="M64 186h152v-67h25" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
- <circle class="demo-dot" cx="64" cy="186" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="3"/>
-</svg>
-<button class="demo-place waterfront" type="button" data-place="waterfront" aria-label="Select Waterfront" aria-pressed="true" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg></button>
-<button class="demo-place gardens" type="button" data-place="gardens" aria-label="Select Garden Gate" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg></button>
-<button class="demo-place riverside" type="button" data-place="riverside" aria-label="Select Riverside" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg></button>
-</div>
-            <div class="phone-tray"><div class="tray-title"><h4 id="tray-title">Waterfront</h4><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg></div><p id="demo-status">Pin selected · illustration only</p><button id="demo-teleport" type="button" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#play"/></svg><span>Preview teleport</span></button></div>
-          </section>
-          <section class="phone-screen library-screen" id="screen-library" aria-label="Library illustration" hidden>
-            <h4>Library</h4><p class="phone-subtitle">A few places to come back to.</p>
-            <div class="phone-list-item"><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg><div><b>Waterfront</b><small>Favorite pin</small></div><svg class="icon" aria-hidden="true"><use href="symbols.svg#star"/></svg></div>
-            <div class="phone-list-item"><svg class="icon" aria-hidden="true"><use href="symbols.svg#route"/></svg><div><b>Garden loop</b><small>Saved route</small></div></div>
-            <div class="phone-list-item"><svg class="icon" aria-hidden="true"><use href="symbols.svg#area"/></svg><div><b>Riverside</b><small>Named area</small></div></div>
-            <p class="phone-footnote">Example places for this preview.</p>
-          </section>
-          <section class="phone-screen settings-screen" id="screen-settings" aria-label="Settings illustration" hidden>
-            <h4>Settings</h4><div class="phone-identity"><img id="phone-icon" src="assets/prism.png" alt="" width="48" height="48"><div><b>Appearance</b><small id="settings-theme">Bloom · Solid</small></div></div>
-            <div class="phone-setting">App icon <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></div><div class="phone-setting">Live Activities <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></div><div class="phone-setting">Notifications <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></div><div class="phone-setting">Software updates <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></div><p class="phone-footnote">Try themes and icons with the controls beside this illustration.</p>
-          </section>
-          <div class="phone-tabs" role="group" aria-label="Preview screen"><button type="button" data-screen="map" aria-pressed="true" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#map"/></svg>Map</button><button type="button" data-screen="library" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#library"/></svg>Library</button><button type="button" data-screen="settings" aria-pressed="false" disabled><svg class="icon" aria-hidden="true"><use href="symbols.svg#settings"/></svg>Settings</button></div>
-        </div>
-        <p class="preview-caption">Interactive illustration of the 2.6.1 development design. Actual maps and system controls differ. This page never changes your location.</p>
-      </div>
+      <p class="small-note">Sign the downloaded IPA to install it on your iPhone. <a tabindex="0" href="guide.html">Signing and pairing guide</a></p>
     </div>
-    </div>
-    <p id="preview-announcement" class="sr-only" role="status"></p>
-    <noscript><p class="shell preview-fallback">JavaScript is off. The illustration shows Bloom; enable JavaScript to try themes, icons, and screens. All guides and links still work.</p></noscript>
-  </section>
-
+    <figure class="hero-product">
+      <div class="hero-map-scene" aria-hidden="true"><img class="hero-map-image" src="city-map.svg" width="1400" height="1050" alt=""></div>
+      <div class="hero-device"><img src="assets/route-planner.webp" width="660" height="1435" alt="Elsepin’s route planner showing a mapped route, walking speed, and a one-minute stop" fetchpriority="high"></div>
+      <figcaption>Route planner on iPhone simulator</figcaption>
+    </figure>
+  </div>
+</section>
+<section id="experience" class="feature-grid shell" aria-label="Explore how Elsepin works">
+    <article class="feature-card" data-story="0"><div><span class="story-feature"><svg class="icon" aria-hidden="true"><use href="symbols.svg#pin"/></svg>Map</span><h2>Pick a place.</h2><p>Search for an address or drop a pin anywhere on the map. Review your selection before starting a simulation.</p></div></article>
+    <article class="feature-card" data-story="1"><div><span class="story-feature"><svg class="icon" aria-hidden="true"><use href="symbols.svg#route"/></svg>Route planner</span><h2>Take the long way.</h2><p>Add stops, set a movement mode and speed for each leg, and pause or stop whenever you need to.</p></div></article>
+    <article class="feature-card" data-story="2"><div><span class="story-feature"><svg class="icon" aria-hidden="true"><use href="symbols.svg#library"/></svg>Library</span><h2>Keep your favorites.</h2><p>Save pins, routes, and named areas. Export a backup and review what gets imported when you move to a new installation.</p></div></article>
+</section>
   <section id="setup" class="setup-section section-space" aria-labelledby="setup-title"><div class="shell setup">
-    <div><h2 id="setup-title">Ready for<br><em>somewhere else?</em></h2><p>Elsepin connects to your iPhone through a local developer tunnel. Give setup a moment before you go anywhere.</p><a tabindex="0" class="button pale" href="guide.html">Follow the setup guide <svg class="icon" aria-hidden="true"><use href="symbols.svg#arrow"/></svg></a><div class="release-note"><a tabindex="0" href="https://github.com/N3moStudio/Elsepin-Releases/releases/tag/v2.6.1">Public release 2.6.1 <svg class="icon" aria-hidden="true"><use href="symbols.svg#external"/></svg></a><p>See the release notes for the latest routes, map and library improvements.</p></div></div>
-    <ol class="setup-steps"><li><span>1</span><div><h3>Install Elsepin.</h3><p>Use the official release and your preferred signing setup. Back up an existing installation before replacing it.</p></div></li><li><span>2</span><div><h3>Pair and connect.</h3><p>Connect LocalDevVPN, follow the in-app pairing checklist, then check the connection.</p></div></li><li><span>3</span><div><h3>Choose a place.</h3><p>Review a pin or route and start when you’re ready. Keep the tunnel connected while using the session controls.</p></div></li></ol>
+    <div><h2 id="setup-title">Get Elsepin.</h2><p>Install the iPhone app, complete pairing, and check your connection before starting a session.</p><div class="actions"><a tabindex="0" class="button pale" href="/downloads/Elsepin-2.6.1-build100.ipa" download>Download for iPhone</a><a tabindex="0" class="button ghost" href="guide.html">Read the setup guide</a></div><div class="release-note"><a tabindex="0" href="guide.html#version">About 2.6.1 (build 100)</a></div></div>
+    <ol class="setup-steps"><li><span>1</span><div><h3>Install Elsepin.</h3><p>Download the IPA and use your preferred signing setup. Back up an existing installation before replacing it.</p></div></li><li><span>2</span><div><h3>Pair and connect.</h3><p>Connect LocalDevVPN, follow the in-app pairing checklist, then check the connection.</p></div></li><li><span>3</span><div><h3>Choose a place.</h3><p>Review a pin or route and start when you’re ready. Keep the tunnel connected while using the session controls.</p></div></li></ol>
   </div></section>
 
-  <section class="faq shell section-space" id="faq" aria-labelledby="faq-title"><div><h2 id="faq-title">A few things<br><em>worth knowing.</em></h2><p>The useful things to know before you begin.</p></div><div>
-    <details><summary>Does this website change my location?</summary><p>No. The map and session buttons are an illustration. The site does not request your location, connect to your iPhone, or start a real session.</p></details>
+  <section class="faq shell section-space" id="faq" aria-labelledby="faq-title"><div><h2 id="faq-title">Frequently asked questions</h2></div><div>
+    <details><summary>Does this website change my location?</summary><p>No. The map on this website is an illustration. The site does not request your location, connect to your iPhone, or start a real session.</p></details>
     <details><summary>What do I need to use the app?</summary><p>An iPhone with a compatible signed installation, LocalDevVPN, and a valid pairing. Signing permissions and iOS behavior matter; a downloaded IPA alone is not a complete setup. Follow the <a tabindex="0" href="guide.html">setup guide</a> and the release’s requirements.</p></details>
     <details><summary>Does “update sent” mean every app has updated?</summary><p>No. Session status describes Elsepin’s own connection and updates. Another app may still show an older location. Optional provider checks show a reported location and its age; they do not guarantee a fresh update. Find My Devices and Find My People are different, and People support is not a promised working feature.</p></details>
     <details><summary>How do I return to my real location?</summary><p>Use <strong>Stop spoofing</strong> and wait for confirmation. If Elsepin can’t clear the location, connect to Wi-Fi, reconnect LocalDevVPN, and try again. Connecting to another device’s Wi-Fi hotspot can also work. Closing or force-quitting Elsepin doesn’t confirm that it cleared. Check the location in another app too.</p></details>
     <details><summary>Can I keep my pins, routes, and favorites?</summary><p>The app has a saved library and backup import/export. Before changing your installation or signing identity, export a backup. Imports let you review individual changes; keep pairing files private and separate.</p></details>
     <details><summary>Why might widgets or icons behave differently?</summary><p>Your signing setup must retain the extension and supported capabilities. Saved-location widgets need shared App Group access. Re-signing can affect those permissions and alternate icons; the website preview cannot verify your installation.</p></details>
-    <details><summary>What does the website store?</summary><p>Preview choices stay in page memory and reset on reload. The site code has no analytics, account forms, or location requests. Hosting providers may retain normal request logs. <a tabindex="0" href="privacy.html">Read the website privacy note.</a></p></details>
+    <details><summary>What does the website store?</summary><p>The site code has no analytics, account forms, or location requests. Hosting providers may retain normal request logs. <a tabindex="0" href="privacy.html">Read the website privacy note.</a></p></details>
   </div></section>
 </main>
-<footer class="site-footer shell"><div><a tabindex="0" class="wordmark" href="index.html"><img src="assets/prism.png" width="38" height="38" alt="">elsepin</a><p>A little elsewhere.<br>A little more you.</p></div><nav aria-label="Footer"><a tabindex="0" href="guide.html">Setup guide</a><a tabindex="0" href="privacy.html">Website privacy</a><a tabindex="0" href="licenses.txt">Licenses & credits</a></nav><small>© 2026 Elsepin. Independent software; not affiliated with Apple or Life360.</small></footer>
-<dialog id="preview-dialog" aria-labelledby="preview-title"><div class="dialog-top"><div><h2 id="preview-title">Make Elsepin yours</h2><p>Interactive illustration. Your real location never changes.</p></div><button id="close-preview" type="button" aria-label="Close preview"><svg class="icon" aria-hidden="true"><use href="symbols.svg#close"/></svg></button></div><div id="dialog-body"></div><button class="dialog-close-bottom" type="button">Close preview</button></dialog>
+<footer class="site-footer shell"><a tabindex="0" class="wordmark" href="index.html"><img src="assets/prism.png" width="38" height="38" alt="">Elsepin</a><nav aria-label="Footer"><a tabindex="0" href="/downloads/Elsepin-2.6.1-build100.ipa" download>Download</a><a tabindex="0" href="guide.html">Setup guide</a><a tabindex="0" href="privacy.html">Website privacy</a><a tabindex="0" href="licenses.txt">Licenses & credits</a></nav><small>© 2026 Elsepin. Independent software.</small></footer>
+
 </body>
 </html>

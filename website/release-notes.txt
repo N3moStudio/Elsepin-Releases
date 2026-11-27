@@ -1,0 +1,9 @@
+Elsepin 2.6.1
+Build 100
+<!-- elsepin-build: 100 -->
+
+Ending a saved route releases it for deletion. Continuing early from a stop now starts a fresh movement interval.
+Settings and pins can be restored independently when a large route library exceeds the backup point limit.
+Pairing and reconnect handling, route search accessibility, and reset and import reviews have been improved.
+
+Back up your library before replacing an installation. Sign the IPA for your iPhone.
